@@ -7,6 +7,7 @@
 <title>Welcome</title>
 </head>
 <body>
+
 Welcome .... Vendor
 <h1>Your Profile Details</h1>
 Your Name=

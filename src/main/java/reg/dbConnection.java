@@ -18,7 +18,7 @@ public class dbConnection {
 			Connection con = DriverManager.getConnection(url, uname, pass);
 			Statement st = con.createStatement();
 			String sql = "CREATE TABLE IF NOT EXISTS " + category
-					+ "(serialID int NOT NULL AUTO_INCREMENT,productID varchar(30), subCategory varchar(50),productName varchar(100),  productPrice double, productUnit int,productQualities varchar(250), mfg varchar(250),  PRIMARY KEY (serialId))";
+					+ "(serialID int NOT NULL AUTO_INCREMENT,productID varchar(30), subCategory varchar(50),productName varchar(100),  productPrice double, productUnit int,productQualities varchar(250), mfg varchar(250),sellerID varchar(50),  PRIMARY KEY (serialId))";
 			st.executeUpdate(sql);
 			System.out.println("Created table in given database...");
 			return true;
