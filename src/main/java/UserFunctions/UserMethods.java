@@ -40,8 +40,7 @@ public class UserMethods {
 				user.setUserID(userUniqueID);
 				user.setPassword(userPassword);
 				user.setUserType(usertype);
-				return user;
-				
+				return user;				
 			}
 			
 		} catch (Exception e) {

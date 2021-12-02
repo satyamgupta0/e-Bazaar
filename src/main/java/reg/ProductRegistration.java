@@ -73,25 +73,6 @@ public class ProductRegistration extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//        *****************************************************************************"*************************/
-//        req.setAttribute("product", product);
-//        resp.sendRedirect(productCategory);
-//        
-//		
-
-//		dbConnection db=new dbConnection();
-//		try {
-//			boolean res=db.addProductToDB(product);
-//			if (res) {
-//				out.println("Product Added SuccessFully");				
-//			}
-//			else {
-//				out.println("Product Could not be added");
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 
 	}
 }
