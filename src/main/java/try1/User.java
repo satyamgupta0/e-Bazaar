@@ -94,6 +94,17 @@ public class User {
 		this.userID = userID;
 	}
 	
+	public void printUserDetails() {
+		System.out.println("Name: "+getName());
+		System.out.println("Email: "+getEmail());
+		System.out.println("mobNumber: "+getMobNumber());
+		System.out.println("address: "+getAddress());
+		System.out.println("Password: "+getPassword());
+		System.out.println("userType: "+getUserType());
+		System.out.println("UserID: "+getUserID());
+		
+	}
+	
 	
 
 }

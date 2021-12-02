@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import UserFunctions.UserMethods;
+import admin.adminMethods;
+
 
 
 @WebServlet("/login")
@@ -31,8 +34,11 @@ public class Login extends HttpServlet {
 		Dao obj=new Dao();
 		boolean result=obj.checkLogIN(user, pass,userType);
 		if(result) {
-			
+			UserMethods um=new UserMethods();
+			User user2=um.getUserDetails(userType, user);
+			user2.printUserDetails();
 			response.sendRedirect("welcomeprofile"+userType+".jsp");
+			
 		}
 		else{
 			out.println("Wrong Email/Password");
