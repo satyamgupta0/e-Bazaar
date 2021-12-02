@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script
+	src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script"
+	rel="stylesheet">
+<link
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
+<title>SignUp</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script src="myscripts.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 mx-auto">
+				<div id="second">
+					<div class="myform form ">
+						<div class="logo mb-3">
+							<div class="col-md-12 text-center">
+								<h1>Signup</h1>
+							</div>
+						</div>
+						<form action="signup" name="registration" method="post">
+						
+						<div class="form-group">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio"
+									name="userType" id="userType" value="customer" checked>
+								<label class="form-check-label" for="inlineRadio1">Customer</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio"
+									name="userType" id="userType" value="vendor">
+								<label class="form-check-label" for="inlineRadio2">Vendor</label>
+							</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Name</label> <input type="text"
+									name="name" class="form-control" id="firstname"
+									aria-describedby="emailHelp" placeholder="Enter your name">
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail1">Email address</label> <input
+									type="email" name="email" class="form-control" id="email"
+									aria-describedby="emailHelp" placeholder="Enter email">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Mobile Number</label> <input
+									type="number" name="mobNumber" class="form-control" id="mobn"
+									aria-describedby="emailHelp" placeholder="Enter Mobile Number">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Address</label> <input
+									type="text" name="address" class="form-control" id="addr"
+									aria-describedby="emailHelp" placeholder="Enter Address">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Password</label> <input
+									type="password" name="password" id="password"
+									class="form-control" aria-describedby="emailHelp"
+									placeholder="Enter Password">
+							</div>
+							<div class="col-md-12 text-center mb-3">
+								<button type="submit"
+									class=" btn btn-block mybtn btn-primary tx-tfm">SignUp</button>
+							</div>
+							<div class="col-md-12 ">
+								<div class="form-group">
+									<p class="text-center">
+										<a href="login.html" id="signin">Already have an account?</a>
+									</p>
+								</div>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
