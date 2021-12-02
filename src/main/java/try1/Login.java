@@ -39,31 +39,6 @@ public class Login extends HttpServlet {
 			response.sendRedirect("/UserEntry/src/main/webapp/Home.html");
 		}
 		
-		/*
-		boolean j=obj.log(user,pass);
-		if(j)	
-		{
-				HttpSession session=request.getSession();
-			session.setAttribute("username",user);
-				try {
-					
-					response.sendRedirect("Home.jsp");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} 
-		}
-		else{
-			try {             
-
-				HttpSession session=request.getSession();
-				session.setAttribute("user",user1);
-				response.sendRedirect("Login.jsp");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		*/
+		
 	}
 }	

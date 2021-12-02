@@ -44,17 +44,17 @@ public class Dao {
 			
 			//Update the USERUniqueID as CUSTOMER34 or VENDOR23 in the table
 			
-//			String tableName= userType+"RegistrationDetails";
-//			ResultSet rs = st
-//					.executeQuery("SELECT * FROM " + tableName+" ORDER BY serialID DESC LIMIT 1;");
-//			rs.next();
-//			int id = rs.getInt("serialID");
-//			String productID = product.getSubCategory().toUpperCase() + id;
-//			product.setProductID(productID);
-//			System.out.println(product.getProductID());
-//			String sql2="update "+product.getCategory()+" set productID='"+product.getProductID()+"' where serialID="+id;
-//			st.executeUpdate(sql2);
-//			System.out.println("Product ID updated");
+			String tableName= userType+"RegistrationDetails";
+			ResultSet rs = st
+					.executeQuery("SELECT * FROM " + tableName+" ORDER BY userSerialID DESC LIMIT 1;");
+			rs.next();
+			int id = rs.getInt("userSerialID");
+			String userID = userType.toUpperCase() + id;
+			user.setUserID(userID);
+			System.out.println(user.getUserID());
+			String sql2="update "+tableName+" set userUniqueID='"+user.getUserID()+"' where userSerialID="+id;
+			st.executeUpdate(sql2);
+			System.out.println("Product ID updated");
 
 			// get last insert id
 			// create a Unique ID
