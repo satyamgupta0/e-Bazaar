@@ -65,7 +65,7 @@ public class Dao {
 		}
 
 		catch (Exception f) {
-			f.printStackTrace();
+			f.getMessage();
 		}
 
 		return result;

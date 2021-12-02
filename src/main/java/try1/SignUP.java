@@ -44,7 +44,7 @@ public class SignUP extends HttpServlet {
 			out.println("Successful");
 		}
 		else{
-			out.println("failed");
+			out.println("userEmail Already exists.");
 		}
 		
 		
