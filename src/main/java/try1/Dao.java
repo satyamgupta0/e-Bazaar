@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 import Connection.MyCon;
+import UserFunctions.UserMethods;
 
 
 public class Dao {
@@ -83,8 +84,10 @@ public class Dao {
 			if (rs.next()) {
 				result = true;
 			}
+			UserMethods um=new UserMethods();
+			User user2=um.getUserDetails(usertype, user);
 
-			String sql2 = "insert into signindetails(userID,fetchedUserName,fetchedUserRegistrationID,usertype) values('"+user+"','none','none','"+usertype+"');";
+			String sql2 = "insert into signindetails(userID,fetchedUserName,fetchedUserRegistrationID,usertype) values('"+user+"','"+user2.getName()+"','"+user2.getUserID()+"','"+usertype+"');";
 					//"insert into signindetails(userID,fetchedUserName,fetchedUserRegistrationID,userType) values('" + user
 					//+ "', 'notFetched', 'notFetched','"+usertype+"')";
 					
