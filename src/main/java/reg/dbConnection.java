@@ -2,6 +2,7 @@ package reg;
 
 import java.sql.*;
 
+
 public class dbConnection {
 
 	String url = "jdbc:mysql://localhost:3306/product";
@@ -43,7 +44,7 @@ public class dbConnection {
 			ps.setString(2, product.getName());
 			ps.setDouble(3, product.getProductPrice());
 			ps.setInt(4, product.getProductUnit());
-			ps.setString(5, product.getProductQualities().toString());
+			ps.setString(5,toString(product.getProductQualities()));
 			ps.setString(6, product.getMfg());
 			
 			// Also include the vendorID in a column
@@ -53,21 +54,14 @@ public class dbConnection {
 			Statement st = con.createStatement();
 
 			ResultSet rs = st
-					.executeQuery("SELECT * FROM " + product.getCategory() + " ORDER BY serialID DESC LIMIT 1;");
+					.executeQuery("SELECT * FROM " + product.getCategory() + " ORDER BY serialID DESC LIMIT 1;");// get last insert id
 			rs.next();
-			int id = rs.getInt("serialID");
-			String productID = product.getSubCategory().toUpperCase() + id;
-			product.setProductID(productID);
-			System.out.println(product.getProductID());
+			int id = rs.getInt("serialID");// get last insert id
+			String productID = product.getCategory().toUpperCase()+"_"+product.getSubCategory().toUpperCase() + id;// create a Unique ID
+			// ProductID is generated as ELECTRONICS_LAPTOP45
+			product.setProductID(productID);// set uniqueID of user			
 			String sql2="update "+product.getCategory()+" set productID='"+product.getProductID()+"' where serialID="+id;
-			st.executeUpdate(sql2);
-			System.out.println("Product ID updated");
-
-			// get last insert id
-			// create a Unique ID
-			// set uniqueID of user
-			// update the uniqueID into table using sql queries and with the help of
-			// last_insert_id();
+			st.executeUpdate(sql2); //// update the uniqueID into table using sql queries and with the help of last_insert_id();
 			return true;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -76,11 +70,13 @@ public class dbConnection {
 		return false;
 	}
 
-//	protected boolean buyProduct(Product product) {
-//		
-//		String sql=
-//		
-//		
-//		return false;
-//	}
+	
+	public String toString(String arr[]) {
+		String string = "";
+		for (int i = 0; i < arr.length; i++) {
+			string = arr[i] + " ,";
+		}
+		return string;
+
+	}
 }

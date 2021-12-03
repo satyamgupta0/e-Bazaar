@@ -1,5 +1,7 @@
 package reg;
 
+
+
 public class Product {
 
 	public String name;
@@ -10,6 +12,14 @@ public class Product {
 	public int productUnit;
 	public double productPrice;
 	public String mfg;
+	public String sellerID;
+	
+	public String getSellerID() {
+		return sellerID;
+	}
+	public void setSellerID(String sellerID) {
+		this.sellerID = sellerID;
+	}
 	public String getName() {
 		return name;
 	}
@@ -59,7 +69,7 @@ public class Product {
 		this.mfg = mfg;
 	}
 	public Product(String name, String category, String subCategory, String productID, String[] productQualities,
-			int productUnit, double productPrice, String mfg) {
+			int productUnit, double productPrice, String mfg,String sellerID) {
 		
 		this.name = name;
 		this.category = category;
@@ -69,6 +79,7 @@ public class Product {
 		this.productUnit = productUnit;
 		this.productPrice = productPrice;
 		this.mfg = mfg;
+		this.sellerID=sellerID;
 	}
 	public Product() {
 		
@@ -80,8 +91,29 @@ public class Product {
 		this.productUnit = 0;
 		this.productPrice = 0;
 		this.mfg = "";
+		this.sellerID="";
 	}
 
-
+	public void printProductDetails() {
+		System.out.println("ProductName: "+getName());
+		System.out.println("ProductCategory: "+getCategory());
+		System.out.println("ProductSubCategory: "+getSubCategory());
+		System.out.println("ProductID: "+getProductID());
+		System.out.println("ProductQualities: "+toString(getProductQualities()));
+		System.out.println("ProductUnit: "+getProductUnit());
+		System.out.println("ProductPrice: "+getProductPrice());
+		System.out.println("ProductMFG: "+getMfg());
+		System.out.println("SellerID: "+getSellerID());
+		
+		
+	}
+	public String toString(String arr[]) {
+		String string="";
+		for (int i = 0; i < arr.length; i++) {
+			string=arr[i]+" ,";
+		}
+		return string;
+		
+	}
 	
 }

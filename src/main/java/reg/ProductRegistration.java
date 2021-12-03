@@ -3,6 +3,7 @@ package reg;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,6 +33,9 @@ public class ProductRegistration extends HttpServlet {
 		String productSubCategory=req.getParameter("subCategory");
 		String mfg=req.getParameter("mfg");
 		
+		
+		////GET SELLERID
+		String sellerID="Not Defined";
 		Product product = new Product();
 		
 		product.setCategory(productCategory);
@@ -41,6 +45,7 @@ public class ProductRegistration extends HttpServlet {
 		product.setProductPrice(productPrice);
 		product.setProductUnit(productUnit);
 		product.setProductQualities(productQualities);
+		product.setSellerID(sellerID);
 		
 		
 		
@@ -58,7 +63,9 @@ public class ProductRegistration extends HttpServlet {
 		out.println("<br>");
 		out.println("productUnit : " + product.getProductUnit());
 		out.println("<br>");
-		out.println("productQualities : " + product.getProductQualities().toString());
+		out.println("productQualities : " + Arrays.toString(product.getProductQualities()));
+		out.println("<br>");
+		out.println("SellerID : " + product.getSellerID());
 		out.println("<br>");
 		dbConnection db=new dbConnection();
 		try {
