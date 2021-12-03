@@ -24,6 +24,7 @@ public class UserMethods {
 		Connection con = MyCon.dbcon("user_signup_login_DATA_for_admin");
 		String tableName = usertype + "RegistrationDetails";
 		String sql = "select * from " + tableName + " where userEmailid='" + email + "'";
+		
 		try {
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql);

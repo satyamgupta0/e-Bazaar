@@ -27,7 +27,7 @@ public class Login extends HttpServlet {
 		String pass	=request.getParameter("password");
 		String userType=request.getParameter("usertype");
 		PrintWriter out =response.getWriter();
-				
+		System.out.println(userType);		
 		out.println("email: "+user);
 		out.println("<br>");
 		
@@ -42,14 +42,16 @@ public class Login extends HttpServlet {
 		if(result) {
 			
 			UserMethods um=new UserMethods();
+			
+			if(userType.equals("vendor")||userType.equals("customer")) {
 			User user2=um.getUserDetails(userType, user);
-			session.setAttribute("user", user2);			
+			session.setAttribute("user", user2);}			
 			response.sendRedirect("welcomeprofile"+userType+".jsp");
 			
 		}
 		else{
-			out.println("Wrong Email/Password");
-			response.sendRedirect("/UserEntry/src/main/webapp/Home.html");
+			System.out.println("Wrong Email/Password");
+			response.sendRedirect("login.html");
 		}
 		
 		

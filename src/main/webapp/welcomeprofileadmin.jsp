@@ -8,12 +8,18 @@
 <title>Welcome</title>
 </head>
 <body>
-<%
+<%//############################################
+response.setHeader("cache-control", "no-cache, no-store , must-revalidate");
+//Http 1.1 line is used to prevent back button after logout
+response.setHeader("pragma", "no-cache");// http1.0
+response.setHeader("Expires", "0");  // proxies
 
-boolean result=(boolean) session.getAttribute("LoginValue");
+//boolean result=(boolean) session.getAttribute("LoginValue");
 
+if(session.getAttribute("email")==null){
+	response.sendRedirect("login.html");
+}
 %>
-<%= result %>
 <h1>Welcome Admin</h1>
 <br>
 <a href="userslistforadmin.jsp">View the registered users</a><br>
@@ -25,6 +31,9 @@ boolean result=(boolean) session.getAttribute("LoginValue");
 	</a><br>
 	<a href="#"></a><br>
 	
+	<form action="logout" >
+<button type="submit">logout</button>
+</form>
 	
 
 </body>

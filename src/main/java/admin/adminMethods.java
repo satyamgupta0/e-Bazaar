@@ -12,9 +12,8 @@ import com.mysql.cj.Session;
 
 import Connection.MyCon;
 
-public class adminMethods extends HttpServlet {
+public class adminMethods  {
 	
-	Connection con = MyCon.dbcon("user_signup_login_DATA_for_admin");
 	
 	
 
