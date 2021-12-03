@@ -22,10 +22,12 @@ public class Login extends HttpServlet {
    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session=request.getSession();
 		String user	=request.getParameter("email");
 		String pass	=request.getParameter("password");
 		String userType=request.getParameter("usertype");
 		PrintWriter out =response.getWriter();
+				
 		out.println("email: "+user);
 		out.println("<br>");
 		
@@ -33,10 +35,15 @@ public class Login extends HttpServlet {
 		out.println("<br>");
 		Dao obj=new Dao();
 		boolean result=obj.checkLogIN(user, pass,userType);
+		
+		//session.setAttribute("LoginValue",result);
+		session.setAttribute("email", user);
+		
 		if(result) {
+			
 			UserMethods um=new UserMethods();
 			User user2=um.getUserDetails(userType, user);
-			user2.printUserDetails();
+			session.setAttribute("user", user2);			
 			response.sendRedirect("welcomeprofile"+userType+".jsp");
 			
 		}

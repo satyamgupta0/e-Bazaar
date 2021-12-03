@@ -8,7 +8,12 @@
 <title>Welcome</title>
 </head>
 <body>
+<%
 
+boolean result=(boolean) session.getAttribute("LoginValue");
+
+%>
+<%= result %>
 <h1>Welcome Admin</h1>
 <br>
 <a href="userslistforadmin.jsp">View the registered users</a><br>

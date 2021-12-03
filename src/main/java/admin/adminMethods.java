@@ -16,9 +16,6 @@ public class adminMethods extends HttpServlet {
 	
 	Connection con = MyCon.dbcon("user_signup_login_DATA_for_admin");
 	
-	protected void returnRegistrationTable() {
-		
-		
-	}
+	
 
 }

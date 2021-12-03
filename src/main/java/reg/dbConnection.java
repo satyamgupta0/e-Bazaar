@@ -74,7 +74,7 @@ public class dbConnection {
 	public String toString(String arr[]) {
 		String string = "";
 		for (int i = 0; i < arr.length; i++) {
-			string = arr[i] + " ,";
+			string = string+arr[i] + " ,";
 		}
 		return string;
 
