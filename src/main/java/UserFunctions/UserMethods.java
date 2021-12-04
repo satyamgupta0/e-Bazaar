@@ -131,5 +131,33 @@ public class UserMethods {
 		return string;
 
 	}
+	public String getUserID(String usertype, String email) {
+		User user=getUserDetails(usertype, email);
+		return user.getUserID();
+	}
 
+	// A Method to register activity in user_activity DB
+	public boolean registerActivity(User user, String activityName, String ProductID) {
+		//Registering the activity in user_activity table
+		boolean  result=false;
+		Connection con2=MyCon.dbcon("user_activity");
+		String sql4="CREATE TABLE IF NOT EXISTS "+user.getUserID()+"(serialID int NOT NULL AUTO_INCREMENT,activityTime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, activityName varchar(50),productID varchar(50),PRIMARY KEY (serialId))";
+
+		Statement st2;
+		try {
+			st2 = con2.createStatement();
+			st2.executeUpdate(sql4);//Table is Created
+			String sql3="insert into "+user.getUserID()+"(activityName,productID) values('"+activityName+"','"+ProductID+"')";
+			st2.executeUpdate(sql3);	
+			result=true;
+			System.out.println("Entered Activity in DB");
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return result;
+	}
 }
