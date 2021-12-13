@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.Arrays;
 
 import Connection.MyCon;
+import openUsers.OpenUserMethods;
 import reg.Product;
 import try1.User;
 
@@ -57,51 +58,12 @@ public class UserMethods {
 
 	}
 
-	public Product getProductDetails(String ProductID) {
-		Product product = new Product();
-		Connection con = MyCon.dbcon("product");
 
-		String tableName = ProductID.split("_")[0];
-		System.out.println(tableName);
-
-		String sql = "select * from " + tableName + " where productID='" + ProductID + "'";
-		System.out.println(sql);
-		try {
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(sql);
-			while (rs.next()) {
-				int serialID = rs.getInt(1);
-				String productID = rs.getString(2);
-				String subCategory = rs.getString(3);
-				String productName = rs.getString(4);
-				double productPrice = rs.getDouble(5);
-				int productUnit = rs.getInt(6);
-				String[] productQualities = rs.getString(7).split(",");
-				String mfg = rs.getString(8);
-				String sellerID = rs.getString(9);
-
-				product.setCategory(tableName);
-				product.setMfg(mfg);
-				product.setSubCategory(subCategory);
-				product.setProductQualities(productQualities);
-				product.setProductID(productID);
-				product.setProductUnit(productUnit);
-				product.setProductPrice(productPrice);
-				product.setName(productName);
-				product.setSellerID(sellerID);
-			}
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-
-		return product;
-	}
 
 	public boolean updateProduct(String productID, Product productUpdated) {
 		Connection con = MyCon.dbcon("product");
-		Product productOld = getProductDetails(productID);
+		OpenUserMethods op=new OpenUserMethods();
+		Product productOld = op.getProductDetails(productID);
 
 		String tableName = productID.split("_")[0];
 		String sql = "update " + tableName+" set productName='"+productUpdated.getName()+"',  productPrice='"+productUpdated.getProductPrice()+"', productUnit='"+productUpdated.getProductUnit()+"',productQualities='"+toString(productUpdated.getProductQualities())+"', mfg='"+productUpdated.getMfg()+"'  where productID='"+productID+"'";
