@@ -11,8 +11,10 @@ public class MyCartFunctions {
 
 	protected boolean buyProduct(User user, String productID, String quantity) {
 		boolean result=false;
-		//add to user activity
-					
+		//update to vendor product database
+		
+		//add to user activity			
+		
 			UserMethods um=new UserMethods();
 			um.registerActivity(user, "BOUGHT", productID, "");			
 		
