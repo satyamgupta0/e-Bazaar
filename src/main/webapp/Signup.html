@@ -1,99 +1,234 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SignUp</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="G:\Web Development\ProjectCS201\signup\css\styles.css"> -->
+  <style media="screen">
+  /* $font-family:   "Roboto";
+  $font-size:     19px; */
 
-<script
-	src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Kaushan+Script"
-	rel="stylesheet">
-<link
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	rel="stylesheet"
-	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-	crossorigin="anonymous">
-<title>SignUp</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<script src="myscripts.js"></script>
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+   body { 
+      background-size: 200% 100% !important;
+      animation: move 10s ease infinite;
+      transform: translate3d(0, 0, 0);
+      background: linear-gradient(45deg,  #316B83 50%, #142F43 50% );
+      height: 100vh
+  }
+
+  label {
+    display: block;
+    color:#FAF2DA;
+  }
+
+  .floatBlock {
+    margin: 0 2.81em 0 0;
+  }
+
+  .radiobuttons {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 0 3em 0;
+    
+  }
+  .rbtn{
+    border: 0px;
+    width: 100%;
+    height: 2em;
+  }
+
+  .user {
+      width: 90%;
+      max-width: 340px;
+      margin: 10vh auto;
+  }
+
+  .user__header {
+      text-align: center;
+      opacity: 0;
+      transform: translate3d(0, 500px, 0);
+      animation: arrive 500ms ease-in-out 0.7s forwards;
+  }
+
+  .user__title {
+      font-size: 19px;
+      margin-bottom: -10px;
+      font-weight: 500;
+      color: white;
+  }
+
+  .form {
+      margin-top: 30px;
+      border-radius: 6px;
+      overflow: hidden;
+      opacity: 0;
+      transform: translate3d(0, 500px, 0);
+      animation: arrive 500ms ease-in-out 0.9s forwards;
+  }
+
+  .form--no {
+      animation: NO 1s ease-in-out;
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+  }
+
+  .form__input {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      font-family: "Roboto";
+      -webkit-appearance: none;
+      border: 0;
+      outline: 0;
+      transition: 0.3s;
+  }
+
+  .form__input:focus{
+    background: #FAF2DA;
+  }
+
+  .btn {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      font-family: "Roboto";
+      -webkit-appearance: none;
+      outline: 0;
+      border: 0;
+      color: #142F43;
+      background: #FFFCDC;
+      transition: 0.3s;
+
+  }
+
+
+  .btn:hover {
+      transform: translatey(3px);
+      box-shadow: none;
+      background-color: #407088;
+  }
+
+  /* buttons hover Animation */
+  .btn:hover {
+      animation: ani9 0.4s ease-in-out infinite alternate;
+  }
+
+  .already a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  @keyframes NO {
+    from, to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+      -webkit-transform: translate3d(-10px, 0, 0);
+      transform: translate3d(-10px, 0, 0);
+    }
+
+    20%, 40%, 60%, 80% {
+      -webkit-transform: translate3d(10px, 0, 0);
+      transform: translate3d(10px, 0, 0);
+    }
+  }
+
+  @keyframes arrive {
+      0% {
+          opacity: 0;
+          transform: translate3d(0, 50px, 0);
+      }
+
+      100% {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+      }
+  }
+
+  @keyframes move {
+      0% {
+          background-position: 0 0
+      }
+
+      50% {
+          background-position: 100% 0
+      }
+
+      100% {
+          background-position: 0 0
+      }
+  }
+
+  </style>
 </head>
+
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-5 mx-auto">
-				<div id="second">
-					<div class="myform form ">
-						<div class="logo mb-3">
-							<div class="col-md-12 text-center">
-								<h1>Signup</h1>
-							</div>
-						</div>
-						<form action="signup" name="registration" method="post">
-						
-						<div class="form-group">
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio"
-									name="userType" id="userType" value="customer" checked>
-								<label class="form-check-label" for="inlineRadio1">Customer</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio"
-									name="userType" id="userType" value="vendor">
-								<label class="form-check-label" for="inlineRadio2">Vendor</label>
-							</div>
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Name</label> <input type="text"
-									name="name" class="form-control" id="firstname"
-									aria-describedby="emailHelp" placeholder="Enter your name">
-							</div>
+  <div class="user">
+    <header class="user__header">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+        <h1 class="user__title">SignUp</h1>
+        <br>
+    </header>
+<form class="form" action="signup" name="registration" method="post">
+    <p class="labelish"></p>
+           <div id="usertype" name="inlineradios" class="radiobuttons">
 
-							<div class="form-group">
-								<label for="exampleInputEmail1">Email address</label> <input
-									type="email" name="email" class="form-control" id="email"
-									aria-describedby="emailHelp" placeholder="Enter email">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Mobile Number</label> <input
-									type="number" name="mobNumber" class="form-control" id="mobn"
-									aria-describedby="emailHelp" placeholder="Enter Mobile Number">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Address</label> <input
-									type="text" name="address" class="form-control" id="addr"
-									aria-describedby="emailHelp" placeholder="Enter Address">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Password</label> <input
-									type="password" name="password" id="password"
-									class="form-control" aria-describedby="emailHelp"
-									placeholder="Enter Password">
-							</div>
-							<div class="col-md-12 text-center mb-3">
-								<button type="submit"
-									class=" btn btn-block mybtn btn-primary tx-tfm">SignUp</button>
-							</div>
-							<div class="col-md-12 ">
-								<div class="form-group">
-									<p class="text-center">
-										<a href="login.html" id="signin">Already have an account?</a>
-									</p>
-								</div>
-							</div>
-						</form>
-					</div>
+               <div id="usertype" class="floatBlock">
+                   <label for="inlineRadio1"> <input id="userType" class="rbtn" name="userType" type="radio" value="customer" checked />  Customer  </label>
+               </div>
 
-				</div>
-			</div>
-		</div>
-	</div>
+               <div id="usertype" class="floatBlock">
+                   <label for="inlineRadio1"> <input id="userType" name="userType" class="rbtn" type="radio" value="vendor" />  Vendor  </label>
+               </div>
 
+           </div>
 
+    
+        <div class="form__group">
+            <input type="text" placeholder="Full Name" name="name" class="form__input" />
+        </div>
+
+        <div class="form__group">
+            <input type="email" placeholder="Email" name="email" class="form__input" />
+        </div>
+
+        <div class="form__group">
+            <input type="number" name="mobNumber" placeholder="Mobile Number" class="form__input" />
+        </div>
+
+        <div class="form__group">
+            <input type="text" placeholder="Address" name="address" class="form__input" />
+        </div>
+
+        <div class="form__group">
+            <input type="password" placeholder="Password" name="password" class="form__input" />
+        </div>
+
+        <button class="btn" type="submit">Signup</button>
+    </form>
+    <br>
+    <div class="already">
+      <a href="login.html">Already have an Account | LogIn </a>
+    </div>
+
+</div>
 </body>
 </html>

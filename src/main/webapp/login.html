@@ -1,104 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
-<meta charset="ISO-8859-1">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script
-	src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Kaushan+Script"
-	rel="stylesheet">
-<link
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	rel="stylesheet"
-	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+<meta charset="utf-8">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+	integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
 	crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
+	rel="stylesheet">
 <title>Login</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<script src="myscripts.js"></script>
+<style media="screen">
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-image: linear-gradient(-225deg, #A2D2FF 0%, #FFE6FA 100%);
+	background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	font-family: 'Vibur', cursive;
+	font-family: 'Abel', sans-serif;
+	opacity: .95;
+	background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+}
+
+form {
+	width: 450px;
+	min-height: 500px;
+	height: auto;
+	border-radius: 5px;
+	margin: 2% auto;
+	box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+	padding: 2%;
+	background-image: linear-gradient(-225deg, #F4F9F9 50%, #FFF5EB 50%);
+}
+
+form .con {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
+
+header {
+	margin: 2% auto 10% auto;
+	text-align: center;
+}
+
+header h2 {
+	font-size: 250%;
+	font-family: 'Playfair Display', serif;
+	color: #3e403f;
+}
+
+header p {
+	letter-spacing: 0.05em;
+}
+
+.input-item {
+	background: #fff;
+	color: #333;
+	padding: 16px 0px 16px 9px;
+	border-radius: 5px 0px 0px 5px;
+}
+
+#eye {
+	background: #fff;
+	color: #333;
+	margin: 5.9px 0 0 0;
+	margin-left: -80px;
+	padding: 15.5px 9px 19px 0px;
+	border-radius: 0px 5px 5px 0px;
+	float: right;
+	position: relative;
+	right: 1%;
+	top: -.2%;
+	z-index: 5;
+	cursor: pointer;
+}
+/* inputs form  */
+input[class="form-input"] {
+	width: 250px;
+	height: 50px;
+	margin-top: 2%;
+	padding: 15px;
+	font-size: 16px;
+	font-family: 'Abel', sans-serif;
+	color: #5E6472;
+	outline: none;
+	border: none;
+	border-radius: 0px 5px 5px 0px;
+	transition: 0.2s linear;
+}
+
+input [id="txt-input"] {
+	width: 250px;
+}
+
+input:focus {
+	transform: translateX(-2px);
+	border-radius: 5px;
+}
+
+button {
+	display: inline-block;
+	color: #252537;
+	width: 280px;
+	height: 50px;
+	padding: 0 20px;
+	background: #fff;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	text-align: center;
+	transition: all 0.2s linear;
+	margin: 7% auto;
+	letter-spacing: 0.05em;
+}
+
+.submits {
+	width: 48%;
+	display: inline-block;
+	float: left;
+	margin-left: 2%;
+}
+
+.frgt-pass {
+	background: transparent;
+}
+
+.sign-up {
+	background: #B8F2E6;
+}
+
+button:hover {
+	transform: translatey(3px);
+	box-shadow: none;
+}
+
+button:hover {
+	animation: ani9 0.4s ease-in-out infinite alternate;
+}
+</style>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-5 mx-auto">
-				<div id="first">
-					<div class="myform form ">
-						<div class="logo mb-3">
-							<div class="col-md-12 text-center">
-								<h1>Login</h1>
-							</div>
-						</div>
-						<form action="login" method="post" name="login">
-						<div class="form-group">
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio"
-									name="usertype" id="inlineRadio1" value="customer" checked>
-								<label class="form-check-label" for="inlineRadio1">Customer</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio"
-									name="usertype" id="inlineRadio2" value="vendor">
-								<label class="form-check-label" for="inlineRadio2">Vendor</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio"
-									name="usertype" id="inlineRadio3" value="admin">
-								<label class="form-check-label" for="inlineRadio3">Admin</label>
-							</div></div>
-						
-							<div class="form-group">
-								<label for="exampleInputEmail1">Email address</label> <input
-									type="email" name="email" class="form-control" id="email"
-									aria-describedby="emailHelp" placeholder="Enter email">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Password</label> <input
-									type="password" name="password" id="password"
-									class="form-control" aria-describedby="emailHelp"
-									placeholder="Enter Password">
-							</div>
-							<div class="form-group">
-								<p class="text-center">
-									By signing up you accept our <a href="#">Terms Of Use</a>
-								</p>
-							</div>
-							<div class="col-md-12 text-center ">
-								<button type="submit"
-									class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
-							</div>
-							<div class="col-md-12 ">
-								<div class="login-or">
-									<hr class="hr-or">
-									<span class="span-or">or</span>
-								</div>
-							</div>
-							<div class="col-md-12 mb-3">
-								<p class="text-center">
-									<a href="javascript:void();" class="google btn mybtn"><i
-										class="fa fa-google-plus"> </i> Signup using Google </a>
-								</p>
-							</div>
-							<div class="form-group">
-								<p class="text-center">
-									Don't have account? <a href="Signup.html" id="signup">Sign
-										up here</a>
-								</p>
-							</div>
-						</form>
+	<div class="overlay">
+		<form action="login" method="post" name="login">
+			<div class="con">
+				<header class="head-form">
+					<h2>Log In</h2>
+					<br>
+					<p>login here using your email and password</p>
+				</header>
+				<br>
+				<div>
+					<input class="form-check-input" type="radio" name="usertype"
+						id="inlineRadio1" value="customer" checked> <label
+						class="form-check-label" for="inlineRadio1">Customer</label>
+				</div>
 
-					</div>
+				<div>
+					<input class="form-check-input" type="radio" name="usertype"
+						id="inlineRadio2" value="vendor"> <label
+						class="form-check-label" for="inlineRadio2">Vendor</label>
+				</div>
+
+				<div>
+					<input class="form-check-input" type="radio" name="usertype"
+						id="inlineRadio3" value="admin"> <label
+						class="form-check-label" for="inlineRadio3">Admin</label>
+				</div>
+
+				<br>
+				<br>
+				<br>
+
+
+				<div class="field-set">
+					<span class="input-item"> <i class="fas fa-user-circle"></i>
+					</span> <input class="form-input" id="txt-input" type="email" name="email"
+						placeholder="@Email" required> <br> <span
+						class="input-item"> <i class="fas fa-key"></i>
+					</span> <input class="form-input" type="password" placeholder="Password"
+						id="pwd" name="password" required> <span> <i
+						class="fas fa-eye" aria-hidden="true" type="button" id="eye"></i>
+					</span> <br>
+					<button class="log-in">Log In</button>
+				</div>
+
+				<div class="other">
+					<button type="submit" class="btn submits frgt-pass">Forgot
+						Password</button>
+					<a href="Signup.html"><button class="btn submits sign-up">Sign
+							Up</a> <i class="fas fa-user-plus" aria-hidden="true"></i>
+					</button>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
-
-
 </body>
 </html>
-
