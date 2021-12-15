@@ -30,21 +30,21 @@ public class Dao {
 //			ResultSet rs=stm.executeQuery("")
 //			int serial=
 
-			String sql = "insert into " + userType
-					+ "RegistrationDetails( username, userEmailid,userMobNumber,userPassword,userAddress) values(?,?,?,?,?)";
+			String sql = "insert into userRegistrationDetails( username, userEmailid,userMobNumber,userPassword,userAddress,userType) values(?,?,?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, name);
 			st.setString(2, email);
 			st.setString(3, mobNumber);
 			st.setString(4, pass);
 			st.setString(5, address);
+			st.setString(6, userType);
 
 			st.executeUpdate();
 			System.out.println("Details Inserted ......");
 
 			// Update the USERUniqueID as CUSTOMER34 or VENDOR23 in the table
 
-			String tableName = userType + "RegistrationDetails";
+			String tableName = "userRegistrationDetails";
 			ResultSet rs = st.executeQuery("SELECT * FROM " + tableName + " ORDER BY userSerialID DESC LIMIT 1;");
 			rs.next();
 			int id = rs.getInt("userSerialID");
@@ -62,7 +62,7 @@ public class Dao {
 			// update the uniqueID into table using sql queries and with the help of
 			// last_insert_id();			
 			UserMethods um=new UserMethods();
-			boolean t=um.registerActivity(user, "REGISTERED", "");
+			boolean t=um.registerActivity(user, "REGISTERED", "","Completed Registration");
 			if(t) {
 				System.out.println("Activity Recorded");
 			}
@@ -87,11 +87,12 @@ public class Dao {
 			result = true;
 		} else {
 			try {
-				String sql = "select * from " + usertype + "RegistrationDetails where userEmailid=? and userPassword=?";
+				String sql = "select * from userRegistrationDetails where userEmailid=? and userPassword=? and userType=?";
 				Connection con = MyCon.dbcon("user_signup_login_DATA_for_admin");
 				PreparedStatement st = con.prepareStatement(sql);
 				st.setString(1, user);
 				st.setString(2, pass);
+				st.setString(3, usertype);
 				ResultSet rs = st.executeQuery();
 				if (rs.next()) {
 					result = true;
@@ -102,7 +103,7 @@ public class Dao {
 				String sql2 = "insert into signindetails(userID,fetchedUserName,fetchedUserRegistrationID,usertype) values('"
 						+ user + "','" + user2.getName() + "','" + user2.getUserID() + "','" + usertype + "');";
 				st.executeUpdate(sql2);
-				boolean t=um.registerActivity(user2, "LOGGEDIN", "");
+				boolean t=um.registerActivity(user2, "LOGGEDIN", "","");
 				if(t) {
 					System.out.println("Activity Recorded");
 				}
