@@ -62,7 +62,7 @@ public class Dao {
 			// update the uniqueID into table using sql queries and with the help of
 			// last_insert_id();			
 			UserMethods um=new UserMethods();
-			boolean t=um.registerActivity(user, "REGISTERED", "");
+			boolean t=um.registerActivity(user, "REGISTERED", "","Completed Registration");
 			if(t) {
 				System.out.println("Activity Recorded");
 			}
@@ -103,7 +103,7 @@ public class Dao {
 				String sql2 = "insert into signindetails(userID,fetchedUserName,fetchedUserRegistrationID,usertype) values('"
 						+ user + "','" + user2.getName() + "','" + user2.getUserID() + "','" + usertype + "');";
 				st.executeUpdate(sql2);
-				boolean t=um.registerActivity(user2, "LOGGEDIN", "");
+				boolean t=um.registerActivity(user2, "LOGGEDIN", "","");
 				if(t) {
 					System.out.println("Activity Recorded");
 				}

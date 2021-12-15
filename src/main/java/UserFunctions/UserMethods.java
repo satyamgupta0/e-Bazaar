@@ -137,18 +137,21 @@ public class UserMethods {
 	}
 
 	// A Method to register activity in user_activity DB
-	public boolean registerActivity(User user, String activityName, String ProductID) {
+	public boolean registerActivity(User user, String activityName, String ProductID,String description) {
 		//Registering the activity in user_activity table
 		boolean  result=false;
-		Connection con2=MyCon.dbcon("user_activity");
-		String sql4="CREATE TABLE IF NOT EXISTS "+user.getUserID()+"(serialID int NOT NULL AUTO_INCREMENT,activityTime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, activityName varchar(50),productID varchar(50),PRIMARY KEY (serialId))";
-
-		Statement st2;
+		Connection con=MyCon.dbcon("user_activity");
+		
 		try {
-			st2 = con2.createStatement();
-			st2.executeUpdate(sql4);//Table is Created
-			String sql3="insert into "+user.getUserID()+"(activityName,productID) values('"+activityName+"','"+ProductID+"')";
-			st2.executeUpdate(sql3);	
+					
+			String sql3="insert into "+user.getUserType()+"_activity(userID,userName ,activityName,activityDescription ,productID) values(?,?,?,?,?)";
+			PreparedStatement st = con.prepareStatement(sql3);
+			st.setString(1, user.getUserID());
+			st.setString(2, user.getName());
+			st.setString(3, activityName);
+			st.setString(4, description);
+			st.setString(5, ProductID);		
+			st.executeUpdate();
 			result=true;
 			System.out.println("Entered Activity in DB");
 			
