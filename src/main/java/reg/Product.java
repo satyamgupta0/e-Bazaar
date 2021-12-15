@@ -115,5 +115,18 @@ public class Product {
 		return string;
 		
 	}
-	
+	public Product createUpdateCopy() {
+		Product product=new Product();//product2.get
+		product.setCategory(getCategory());	
+		product.setSubCategory(getSubCategory());
+		product.setSellerID(getSellerID());
+		product.setProductID(getProductID());
+//		product.setProductPrice(productPrice);
+//		product.setProductUnit(productUnit);
+//		product.setProductQualities(productQualities);
+//      product.setMfg(mfg);
+//      product.setName(productName);
+		
+		return product;
+	}
 }
