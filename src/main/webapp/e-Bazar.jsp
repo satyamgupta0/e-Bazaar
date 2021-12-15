@@ -17,7 +17,7 @@
 	<div class="container">
 		<div class="navbar">
 			<div class="logo">
-				<img src="images/EE.jpg" width="125px" alt="" />
+				<img src="images/transparent e-bazaar.png" width="125px" alt="" />
 			</div>
 			<nav>
 				<ul id="menu-items">
@@ -215,7 +215,7 @@
 					</div>
 				</div>
 				<div class="footer-col-2">
-					<img src="images/logo-white.png" alt="" />
+					<img src="images/transparent e-bazaar.png" alt="" />
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Suscipit, quis?</p>
 				</div>
