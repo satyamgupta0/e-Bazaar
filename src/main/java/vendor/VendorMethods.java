@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 
 import Connection.MyCon;
+import UserFunctions.UserMethods;
 import openUsers.OpenUserMethods;
 import reg.Product;
 import try1.User;
@@ -37,16 +38,50 @@ public class VendorMethods {
 		}
 	}
 
-	protected boolean updateStock(Product product, User vendor, int quantity) {
-		boolean result = false;
+	public String sellProduct(String productID, User customer, int quantity) {
+		String result = "error_0";
 
-		return false;
+		if (quantity == 0) {
+			result = "error_0";
+		} else if (quantity < 0) {
+			result = "error_-1";
+		} else {
+
+			OpenUserMethods om = new OpenUserMethods();
+			Product product2 = om.getProductDetails(productID);
+			// Created Product Update Copy
+			Product product = product2.createUpdateCopy();
+			product.setProductPrice(product2.getProductPrice());
+			product.setProductQualities(product2.getProductQualities());
+			product.setMfg(product2.getMfg());
+			product.setName(product2.getName());
+			if (product.getProductUnit() - quantity < 0) {
+
+				result = "error_" + product2.getProductUnit();// return the maximum unit which can be sold
+			} else {
+				// setting the updated product unit
+				product.setProductUnit(product2.getProductUnit() - quantity);
+				// updating the product in the database
+				updateProduct(productID, product);
+				result = "success_" + om.getProductDetails(productID).getProductUnit();
+				// Getting the vendor details
+				UserMethods um = new UserMethods();
+				User vendor = um.getUserDetails(product2.getSellerID());
+
+				// Register Activity
+				// Registering for Customer
+				um.registerActivity(customer, "BOUGHT", productID, quantity + "pieces from " + product2.getSellerID());
+				// Registering for Vendor
+				um.registerActivity(vendor, "SOLD", productID, quantity + " pieces to " + customer.getUserID());
+			}
+		}
+		return result;
 	}
-	
+
 	public String toString(String arr[]) {
 		String string = "";
 		for (int i = 0; i < arr.length; i++) {
-			string = string+ arr[i] + " ,";
+			string = string + arr[i] + " ,";
 		}
 		return string;
 

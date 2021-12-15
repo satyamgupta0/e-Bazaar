@@ -58,6 +58,53 @@ public class UserMethods {
 
 	}
 	
+	//Overloading the method with single userID type
+	
+	public User getUserDetails(String userID) {
+		User user = new User();
+		Connection con = MyCon.dbcon("user_signup_login_DATA_for_admin");
+		String tableName = "userRegistrationDetails";
+		String sql = "select * from " + tableName + " where userUniqueID='" + userID + "'";
+		
+		try {
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next()) {
+				int userSerialID = rs.getInt(1);
+				String username = rs.getString(2);
+				String userEmailid = rs.getString(3);
+				String userMobNumber = rs.getString(4);
+				String userPassword = rs.getString(5);
+				String userAddress = rs.getString(6);
+				// String registrationTime=rs.getDateTime(7);
+				String userUniqueID = rs.getString(8);
+				String usertype=rs.getString(9);
+				System.out.println(userSerialID);
+
+				user.setAddress(userAddress);
+				user.setEmail(userEmailid);
+				user.setMobNumber(userMobNumber);
+				user.setName(username);
+				user.setUserID(userUniqueID);
+				user.setPassword(userPassword);
+				user.setUserType(usertype);
+				return user;
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return user;
+
+	}
+	
+	
+	
+	
+	
+	
+	
 
 	public String toString(String arr[]) {
 		String string = "";
