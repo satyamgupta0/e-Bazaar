@@ -1,4 +1,4 @@
-package UserFunctions;
+package vendor;
 
 import openUsers.OpenUserMethods;
 import reg.Product;
@@ -18,7 +18,7 @@ public class Main {
 		product.setName("Bingo Tedhemede");
 		String Qualities[]= {"Juicy","Delicious"};
 		product.setProductQualities(Qualities);
-		UserMethods uf=new UserMethods();
+		VendorMethods uf=new VendorMethods();
 		boolean result=uf.updateProduct("GROCERY_KURKURE6", product);
 		if (result) {
 			System.out.println("Updated");
