@@ -17,14 +17,15 @@
 			</div>
 			<nav>
 				<ul id="menu-items">
-					<li><a href="">Home</a></li>
-					<li><a href="">Products</a></li>					
-					<li><a href="">Contact</a></li>
-					<li><a href="">Account</a></li>
-					<li><a href="logout">Logout</a></li>
+					<li><a href=""><u>Home</u> </a></li>
+					<li><a href=""><u>Account</u></a></li>					
+					<li><a href=""><u>History</u></a></li>
+					<li><a href="#"><u>FeedBack</u></a></li>
+					<li><a href="logout"><u>Logout</u></a></li>
 				</ul>
 			</nav>
-			<img src="images/cart.png" width="30px" height="30px" alt="" /> <img
+			<a href="cart.jsp"><img src="images/cart.png" width="30px" height="30px" alt="" /> </a>
+			 <img
 				src="images/menu.png" class="menu-icon" alt=""
 				onclick="menuToggle()" />
 				<script>

@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="try1.User" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Welcome</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>e-Bazaar</title>
+<link rel="stylesheet" href="css/styleindex.css" />
+<%@ include file="headervendor.jsp" %> 
 </head>
 <body>
-
 <%//############################################
 response.setHeader("cache-control", "no-cache, no-store , must-revalidate");
 //Http 1.1 line is used to prevent back button after logout
@@ -24,14 +27,16 @@ try{
 	User user=(User) session.getAttribute("user");
 %>
 
-Welcome .... Vendor
-
-<h1>Your Profile Details</h1><br><br>
-Your Name: <%=user.getName() %>
-<br><br><br>
-Your Email:<%= user.getEmail() %><br><br>
-Your Mob. No.: <%=user.getMobNumber() %><br><br>
-
+<div style="text-align: center;">
+        <h1>Welcome! <%=user.getName() %></h1>
+		<h3>Email Id : <%=user.getEmail() %></h3>
+		<h3>UserID : <%=user.getUserID() %></h3>
+		<h2>Recent Actions i.e. Prev Logins and other stuff</h2>
+		<!-- Table -->
+		<h2>Recent Sales</h2>
+		<h2>Total Sales</h2>
+		<h4>use update stock to add a new category</h4>
+    </div>
 <%
 }
 catch(Exception e){
@@ -39,20 +44,7 @@ catch(Exception e){
 }
 //##############################################
 %>
-<a href="reg.jsp">Register a new Product</a>
-<br>
-<a href="#">Your Previous logins</a>
 
-<br>
-<a href="#">Product Records</a>
-<br>
-<a href="#">Selling Records</a>
-
-<br>
-<a href="addCategory.jsp">Add a New Category</a>
-<br>
-<form action="logout" >
-<button type="submit">logout</button>
-</form>
+<%@ include file="footer.jsp" %> 
 </body>
-</html>l>
+</html>

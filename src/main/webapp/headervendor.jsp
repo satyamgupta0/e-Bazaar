@@ -17,11 +17,11 @@
 			</div>
 			<nav>
 				<ul id="menu-items">
-					<li><a href="">Home</a></li>
-					<li><a href="">Products</a></li>					
-					<li><a href="">Contact</a></li>
-					<li><a href="">Account</a></li>
-					<li><a href="logout">Logout</a></li>
+					<li><a href=""><u>Home</u> </a></li>
+					<li><a href="reg.jsp"><u>Register Product</u></a></li>					
+					<li><a href=""><u>Sales</u></a></li>
+					<li><a href=""><u>Stock</u></a></li>
+					<li><a href="logout"><u>Logout</u></a></li>
 				</ul>
 			</nav>
 			<img src="images/cart.png" width="30px" height="30px" alt="" /> <img

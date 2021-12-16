@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+body,
+button {
+  font-family: "ubuntu", sans-serif;
+}
+:root {
+  --offcanvas-width: 270px;
+  --topNavbarHeight: 60px;
+}
+.sidebar-nav {
+  width: var(--offcanvas-width);
+}
+.sidebar-link {
+  display: flex;
+  align-items: center;
+}
+.sidebar-link .right-icon {
+  display: inline-flex;
+}
+.sidebar-link[aria-expanded="true"] .right-icon {
+  transform: rotate(180deg);
+}
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+  main {
+    margin-left: var(--offcanvas-width);
+  }
+  /* this is to remove the backdrop */
+  .offcanvas-backdrop::before {
+    display: none;
+  }
+  .sidebar-nav {
+    -webkit-transform: none;
+    transform: none;
+    visibility: visible !important;
+    height: calc(100% - var(--topNavbarHeight));
+    top: var(--topNavbarHeight);
+  }
+}
+.color1{
+    /* background-color: #e91e63; */
+    /* background-color: #fc0fc0; */
+    background-color:#000000;
+    /* color: white; */
+}
+.color2{
+    background-color:black;
+}
+body{
+    /* background: url(bg.jpeg); */
+    /* background-color:rgb(0,14,41); */
+    /* background-color: #ff4c68; */
+    background-color: rgb(13,110,253);
+}
+.card-style{
+    /* background-color: transparent; */
+    /* opacity: 0.5; */
+    color: white;
+    border: 5px solid white;
+}
+/* .ion-color{
+    text-align: center;
+} */
+.dashboard-col{
+    color: white;
+    font-size: 2rem;
+    /* margin-left: 3%; */
+    font-weight: 800;
+}
+.a1{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+/* .progress{
+    width: 75%;
+    text-align: center;
+} */
+
+.card-body{
+    display: flex;
+    /* text-align: center; */
+    justify-content: center;
+}
+.head1{
+  font-size: 1.8rem;
+  color: white;
+  padding-left: 1%;
+}
+.head2{
+  font-size: 1.5rem;
+  color: #FFD700;
+  /* padding-top: 5%; */
+}
+.card1{
+  background: transparent !important;
+}
+.head-dash{
+  margin-top: 1%;
+}
+.color-a{
+  background-color: #f5d020;
+  background-image: linear-gradient(315deg, #f5d020 0%, #f53803 74%);
+
+}
+.color-b{
+  /* background-color: #21d190;
+background-image: linear-gradient(315deg, #21d190 0%, #d65bca 74%); */
+background-color: #4834d4;
+background-image: linear-gradient(315deg, #4834d4 0%, #0c0c0c 74%);
+}
+.color-c{
+  /* background-color: #03e5b7;
+  background-image: linear-gradient(315deg, #03e5b7 0%, #037ade 74%); */
+  background-color: #f907fc;
+background-image: linear-gradient(315deg, #f907fc 0%, #05d6d9 74%);
+}
+.color-d{
+  /* background-color: #e056fd;
+  background-image: linear-gradient(315deg, #e056fd 0%, #000000 74%); */
+  background-color: #000000;
+background-image: linear-gradient(326deg, #000000 0%, #ce203c 74%);
+
+}
+.head3:hover{
+  background: #ff4c68;
+  color: white;
+}
+.head3{
+  color: aqua;
+}
+.col-md-3 mb-3{
+  color: #f5d020;
+}

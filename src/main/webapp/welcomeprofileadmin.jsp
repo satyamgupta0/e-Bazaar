@@ -7,6 +7,7 @@
 <meta charset="ISO-8859-1">
 <title>Welcome</title>
 </head>
+<%@ include file="header.jsp" %> 
 <body>
 <%//############################################
 response.setHeader("cache-control", "no-cache, no-store , must-revalidate");
@@ -35,6 +36,6 @@ if(session.getAttribute("email")==null){
 <button type="submit">logout</button>
 </form>
 	
-
+<%@ include file="footer.jsp" %> 
 </body>
 </html>
