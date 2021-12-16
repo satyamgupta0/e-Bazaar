@@ -31,22 +31,22 @@
 <body>
 
 
-	<div class="table-responsive overflow-auto">
+	<div class="table-responsive overflow-auto "style="height:300px; overflow:auto;">
 		<h1>User Registration Details</h1>
 
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
 
-					<th scope="col">userSerialID</th>
-					<th scope="col">userName</th>
-					<th scope="col">userEmailid</th>
-					<th scope="col">userMobNumber</th>
-					<th scope="col">userPassword</th>
-					<th scope="col">userAddress</th>
-					<th scope="col">registrationTime</th>
-					<th scope="col">userUniqueID</th>
-					<th scope="col">userType</th>
+					<th scope="col">Sr.No.</th>
+					<th scope="col">Name</th>
+					<th scope="col">Email</th>
+					<th scope="col">MobNumber</th>
+					<th scope="col">Password</th>
+					<th scope="col">Address</th>
+					<th scope="col">Reg-Time</th>
+					<th scope="col">userID</th>
+					<!-- 	<th scope="col">userType</th> 	-->	
 				</tr>
 			</thead>
 			<tbody>
@@ -66,7 +66,7 @@
 					<td><%=rs.getString(6)%></td>
 					<td><%=rs.getString(7)%></td>
 					<td><%=rs.getString(8)%></td>
-					<td><%=rs.getString(9)%></td>
+	<!--<td><%=rs.getString(9)%></td>  	-->			
 				</tr>
 				<%
 				}
