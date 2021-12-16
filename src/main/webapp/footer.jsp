@@ -47,7 +47,7 @@
 				</div>
 			</div>
 			<hr />
-			<p class="copyright">Copyright 2020 - RedStore</p>
+			<p class="copyright">Copyright 2021 - e-Bazaar</p>
 		</div>
 	</div>
 	<!-- Js for toggle menu -->
