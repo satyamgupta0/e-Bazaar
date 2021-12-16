@@ -27,25 +27,36 @@
 	crossorigin="anonymous">
 
 <title>UserEntry</title>
+<style>
+    .header{
+        position:sticky;
+        top: 0 ;
+    }
+</style>
 </head>
+
 <body>
 
-
+<div style="text-align: center;">
+ <br><br>
+        <h1>User Registration Details</h1>    <br><br>
+         
+    </div>
 	<div class="table-responsive overflow-auto "style="height:300px; overflow:auto;">
-		<h1>User Registration Details</h1>
+		
 
-		<table class="table">
-			<thead class="thead-dark">
-				<tr>
+		<table class="table table-striped table-bordered" style="width: 90%; margin:0 auto 0 auto">
+			<thead class="thead-dark" style="text-align: center; display:sticky;">
+				<tr >
 
-					<th scope="col">Sr.No.</th>
-					<th scope="col">Name</th>
-					<th scope="col">Email</th>
-					<th scope="col">MobNumber</th>
-					<th scope="col">Password</th>
-					<th scope="col">Address</th>
-					<th scope="col">Reg-Time</th>
-					<th scope="col">userID</th>
+					<th class="header" scope="col">Sr.No.</th>
+					<th class="header"  scope="col">Name</th>
+					<th class="header"  scope="col">Email</th>
+					<th class="header"  scope="col">MobNumber</th>
+					<th class="header"  scope="col">Password</th>
+					<th class="header"  scope="col">Address</th>
+					<th class="header"  scope="col">Reg-Time</th>
+					<th class="header"  scope="col">userID</th>
 					<!-- 	<th scope="col">userType</th> 	-->	
 				</tr>
 			</thead>
