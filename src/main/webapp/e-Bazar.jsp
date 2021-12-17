@@ -105,6 +105,11 @@
 				<p><%=rs.getString(8)%></p>
 				<p>
 					Product ID :<%=rs.getString(2)%></p>
+					<!-- ***********************Add to Cart Button*********************** -->
+					<form action="/cartactions">
+					<input type="text" name="productID" value="<%=rs.getString(2) %>" hidden>
+					<button class = "btn" type="submit">Add To Cart</button> 
+					</form>
 			</div>
 			<%
 			i++;
@@ -153,6 +158,11 @@
 				<p><%=rs.getString(8)%></p>
 				<p>
 					Product ID :<%=rs.getString(2)%></p>
+					<!-- ***********************Add to Cart Button*********************** -->
+					<form action="/cartactions">
+					<input type="text" name="productID" value="<%=rs.getString(2) %>" hidden>
+					<button class = "btn" type="submit">Add To Cart</button> 
+					</form>
 			</div>
 			<%
 			i++;
