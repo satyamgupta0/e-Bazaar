@@ -29,7 +29,7 @@
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery("select * from clothing");
 				int i = 0;
-				while (rs.next() && i < 10) {
+				while (rs.next() && i < 12) {
 			%>
 
 
@@ -83,7 +83,7 @@
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery("select * from electronics");
 				int i = 0;
-				while (rs.next() && i < 10) {
+				while (rs.next() && i < 12) {
 			%>
 
 
@@ -136,7 +136,7 @@
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery("select * from grocery");
 				int i = 0;
-				while (rs.next() && i < 10) {
+				while (rs.next() && i < 12) {
 			%>
 
 
