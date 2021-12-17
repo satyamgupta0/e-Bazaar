@@ -8,7 +8,19 @@
 </head>
 <%@ include file="header.jsp"%>
 <body>
+<%
+	//############################################
+	response.setHeader("cache-control", "no-cache, no-store , must-revalidate");
+	//Http 1.1 line is used to prevent back button after logout
+	response.setHeader("pragma", "no-cache");// http1.0
+	response.setHeader("Expires", "0"); // proxies
 
+	//boolean result=(boolean) session.getAttribute("LoginValue");
+
+	if (session.getAttribute("email") == null) {
+		response.sendRedirect("login.html");
+	}	
+	%>
 
 	<!-- Cart Items Details -->
 	<div class="small-container cart-page">
@@ -95,5 +107,7 @@
 	</div>
 
 	<%@ include file="footer.jsp"%>
+	
+	
 </body>
 </html>

@@ -26,7 +26,7 @@
 	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
 	crossorigin="anonymous">
 
-<title>Sales History</title>
+<title>Product Database</title>
 <style>
 .header {
 	position: sticky;
@@ -64,12 +64,11 @@
 	</div>
 
 
-	<div id="customer">
+	<div id="grocery">
 		<div style="text-align: center;">
 			<br>
-			<h1>Customer Activity</h1>
-			<br>
-			<br>
+			<h1>Grocery</h1>
+			<br> <br>
 
 		</div>
 		<div class="table-responsive overflow-auto "
@@ -83,21 +82,22 @@
 					<tr>
 
 						<th class="header" scope="col">Sr.No.</th>
-						<th class="header" scope="col">Activity-Time</th>
-						<th class="header" scope="col">userID</th>
+						<th class="header" scope="col">ProductID</th>
+						<th class="header" scope="col">SubCategory</th>
 						<th class="header" scope="col">Name</th>
-						<th class="header" scope="col">Activity Name</th>
-						<th class="header" scope="col">Activity-Descr.</th>
-						<th class="header" scope="col">productID</th>
-						<!-- 	<th scope="col">userType</th> 	-->
+						<th class="header" scope="col">Price</th>
+						<th class="header" scope="col">Unit</th>
+						<th class="header" scope="col">Qualities</th>
+						<th class="header" scope="col">MFG</th>
+						<th class="header" scope="col">SellerID</th>
 					</tr>
 				</thead>
 				<tbody>
 					<%
 					try {
-						Connection con = MyCon.dbcon("user_activity");
+						Connection con = MyCon.dbcon("product");
 						Statement st = con.createStatement();
-						ResultSet rs = st.executeQuery("select * from customer_activity where activityName='BOUGHT'");
+						ResultSet rs = st.executeQuery("select * from grocery ");
 						while (rs.next()) {
 					%>
 					<tr>
@@ -105,11 +105,14 @@
 						<td><%=rs.getString(2)%></td>
 						<td><%=rs.getString(3)%></td>
 						<td><%=rs.getString(4)%></td>
-						<td><%=rs.getString(5)%></td>
-						<td><%=rs.getString(6)%></td>
+						<td><%=rs.getDouble(5)%></td>
+						<td><%=rs.getInt(6)%></td>
 						<td><%=rs.getString(7)%></td>
+						<td><%=rs.getString(8)%></td>
+						<td><%=rs.getString(9)%></td>
 
-						
+
+
 					</tr>
 					<%
 					}
@@ -125,12 +128,11 @@
 		</div>
 	</div>
 	<!-- ###################################################### -->
-	<div id="vendor">
+<div id="electronics">
 		<div style="text-align: center;">
 			<br>
-			<h1>Vendor Activity</h1>
-			<br>
-			<br>
+			<h1>Electronics</h1>
+			<br> <br>
 
 		</div>
 		<div class="table-responsive overflow-auto "
@@ -144,21 +146,22 @@
 					<tr>
 
 						<th class="header" scope="col">Sr.No.</th>
-						<th class="header" scope="col">Activity-Time</th>
-						<th class="header" scope="col">userID</th>
+						<th class="header" scope="col">ProductID</th>
+						<th class="header" scope="col">SubCategory</th>
 						<th class="header" scope="col">Name</th>
-						<th class="header" scope="col">Activity Name</th>
-						<th class="header" scope="col">Activity-Descr.</th>
-						<th class="header" scope="col">productID</th>
-						<!-- 	<th scope="col">userType</th> 	-->
+						<th class="header" scope="col">Price</th>
+						<th class="header" scope="col">Unit</th>
+						<th class="header" scope="col">Qualities</th>
+						<th class="header" scope="col">MFG</th>
+						<th class="header" scope="col">SellerID</th>
 					</tr>
 				</thead>
 				<tbody>
 					<%
 					try {
-						Connection con = MyCon.dbcon("user_activity");
+						Connection con = MyCon.dbcon("product");
 						Statement st = con.createStatement();
-						ResultSet rs = st.executeQuery("select * from vendor_activity where activityName='SOLD'");
+						ResultSet rs = st.executeQuery("select * from electronics ");
 						while (rs.next()) {
 					%>
 					<tr>
@@ -166,11 +169,14 @@
 						<td><%=rs.getString(2)%></td>
 						<td><%=rs.getString(3)%></td>
 						<td><%=rs.getString(4)%></td>
-						<td><%=rs.getString(5)%></td>
-						<td><%=rs.getString(6)%></td>
+						<td><%=rs.getDouble(5)%></td>
+						<td><%=rs.getInt(6)%></td>
 						<td><%=rs.getString(7)%></td>
+						<td><%=rs.getString(8)%></td>
+						<td><%=rs.getString(9)%></td>
 
-						
+
+
 					</tr>
 					<%
 					}
@@ -185,6 +191,69 @@
 
 		</div>
 	</div>
-	
+<!-- ################################ -->
+<div id="clothing">
+		<div style="text-align: center;">
+			<br>
+			<h1>Clothing</h1>
+			<br> <br>
+
+		</div>
+		<div class="table-responsive overflow-auto "
+			style="height: 400px; overflow: auto;">
+
+
+			<table class="table table-striped table-bordered"
+				style="width: 90%; margin: 0 auto 0 auto">
+				<thead class="thead-dark"
+					style="text-align: center; display: sticky;">
+					<tr>
+
+						<th class="header" scope="col">Sr.No.</th>
+						<th class="header" scope="col">ProductID</th>
+						<th class="header" scope="col">SubCategory</th>
+						<th class="header" scope="col">Name</th>
+						<th class="header" scope="col">Price</th>
+						<th class="header" scope="col">Unit</th>
+						<th class="header" scope="col">Qualities</th>
+						<th class="header" scope="col">MFG</th>
+						<th class="header" scope="col">SellerID</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+					try {
+						Connection con = MyCon.dbcon("product");
+						Statement st = con.createStatement();
+						ResultSet rs = st.executeQuery("select * from clothing ");
+						while (rs.next()) {
+					%>
+					<tr>
+						<td><%=rs.getInt(1)%></td>
+						<td><%=rs.getString(2)%></td>
+						<td><%=rs.getString(3)%></td>
+						<td><%=rs.getString(4)%></td>
+						<td><%=rs.getDouble(5)%></td>
+						<td><%=rs.getInt(6)%></td>
+						<td><%=rs.getString(7)%></td>
+						<td><%=rs.getString(8)%></td>
+						<td><%=rs.getString(9)%></td>
+
+
+
+					</tr>
+					<%
+					}
+					} catch (Exception e) {
+					// TODO: handle exception
+					out.print(e.getMessage());
+					}
+					%>
+				</tbody>
+			</table>
+
+
+		</div>
+	</div>
 </body>
 </html>

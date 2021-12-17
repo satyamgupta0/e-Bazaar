@@ -8,7 +8,7 @@ import Connection.MyCon;
 import reg.Product;
 
 public class OpenUserMethods {
-	public Product getProductDetails(String ProductID) {
+	public static Product getProductDetails(String ProductID) {
 		Product product = new Product();
 		Connection con = MyCon.dbcon("product");
 
@@ -16,7 +16,7 @@ public class OpenUserMethods {
 		System.out.println(tableName);
 
 		String sql = "select * from " + tableName + " where productID='" + ProductID + "'";
-		System.out.println(sql);
+//		System.out.println(sql);
 		try {
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql);

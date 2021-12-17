@@ -36,6 +36,7 @@
 		<h2>Recent Actions logins purchase history</h2>
 		<!-- Table -->
 		<h2>Saved Items</h2>
+		
     </div>
 	<%
 	} catch (Exception e) {

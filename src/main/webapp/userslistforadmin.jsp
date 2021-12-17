@@ -48,13 +48,22 @@ if(session.getAttribute("email")==null){
 	response.sendRedirect("login.html");
 }
 %>
+<div class="container" style=" margin-top: 7%;">
+		<div class="row">
+			<div class="col"><a href="welcomeprofileadmin.jsp"><img src="images/home.png"
+				style="width: 40px" alt=""></a></div>
+			<div class="col" style="text-align: right;"><a href="logout"><img src="images/logout.png" style="width: 40px"
+				alt=""></a></div>
+
+		</div>
+	</div>
 
 <div style="text-align: center;">
- <br><br>
+ <br>
         <h1>User Registration Details</h1>    <br><br>
          
     </div>
-	<div class="table-responsive overflow-auto "style="height:300px; overflow:auto;">
+	<div class="table-responsive overflow-auto "style="height:400px; overflow:auto;">
 		
 
 		<table class="table table-striped table-bordered" style="width: 90%; margin:0 auto 0 auto">
@@ -104,11 +113,5 @@ if(session.getAttribute("email")==null){
 
 	</div>
 	<!-- ###################################################### -->
-
-
-
-
-
-
 </body>
 </html>

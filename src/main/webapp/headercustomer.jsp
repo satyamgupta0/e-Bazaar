@@ -17,9 +17,9 @@
 			</div>
 			<nav>
 				<ul id="menu-items">
-					<li><a href=""><u>Home</u> </a></li>
-					<li><a href=""><u>Account</u></a></li>					
-					<li><a href=""><u>History</u></a></li>
+					<li><a href="e-Bazar.jsp"><u>Home</u> </a></li>
+					<li><a href="welcomeprofilecustomer.jsp"><u>Account</u></a></li>					
+					<li><a href="customerHistory.jsp"><u>History</u></a></li>
 					<li><a href="#"><u>FeedBack</u></a></li>
 					<li><a href="logout"><u>Logout</u></a></li>
 				</ul>
