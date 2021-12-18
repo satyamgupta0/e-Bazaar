@@ -20,6 +20,8 @@ public class AddToCart extends HttpServlet {
 		HttpSession session=req.getSession();
 		String productID=req.getParameter("productID");
 		User customer=(User) session.getAttribute("user");
+		System.out.println("Recieved the "+productID);
+		
 		MyCartFunctions mn=new MyCartFunctions();
 		boolean result=mn.addToCart(productID, customer);	
 		if (result) {

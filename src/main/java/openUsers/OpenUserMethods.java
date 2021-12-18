@@ -40,6 +40,7 @@ public class OpenUserMethods {
 				product.setProductPrice(productPrice);
 				product.setName(productName);
 				product.setSellerID(sellerID);
+				product.printProductDetails();
 			}
 
 		} catch (Exception e) {
