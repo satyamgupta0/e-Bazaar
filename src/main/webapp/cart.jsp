@@ -8,7 +8,7 @@
 </head>
 <%@ include file="header.jsp"%>
 <body>
-<%
+	<%
 	//############################################
 	response.setHeader("cache-control", "no-cache, no-store , must-revalidate");
 	//Http 1.1 line is used to prevent back button after logout
@@ -19,71 +19,54 @@
 
 	if (session.getAttribute("email") == null) {
 		response.sendRedirect("login.html");
-	}	
+	}
 	%>
 
 	<!-- Cart Items Details -->
 	<div class="small-container cart-page">
 		<table>
 			<tr>
-				<th>Product</th>
+				<th>Product Name</th>
 				<th>Quantity</th>
+				<th>Price</th>
 				<th>Subtotal</th>
 			</tr>
-			<tr>
+				<tr>
 				<td>
-					<div class="cart-info">
-						<img src="images/buy-1.jpg" alt="">
-						<div>
-							<p>Red Printed T-shirt</p>
-							<small>$30</small> <br> <a href="">Remove</a>
-						</div>
-					</div>
+					<h3>Red Printed T-shirt</h3>					
+					<h4>MFG</h4>
+					<h4>Qualities</h4> <br> <a href="">Remove</a>
 				</td>
 				<td><input type="number" value="1"></td>
-				<td>$50.0</td>
-			</tr>
-
-			<tr>
+				<td><h3>price</h3></td>
+				<td>total-price</td>
+			</tr>	<tr>
 				<td>
-					<div class="cart-info">
-						<img src="images/buy-1.jpg" alt="">
-						<div>
-							<p>Red Printed T-shirt</p>
-							<small>$30</small> <br> <a href="">Remove</a>
-						</div>
-					</div>
+					<h3>Red Printed T-shirt</h3>					
+					<h4>MFG</h4>
+					<h4>Qualities</h4> <br> <a href="">Remove</a>
 				</td>
 				<td><input type="number" value="1"></td>
-				<td>$50.0</td>
-			</tr>
-
-			<tr>
+				<td><h3>price</h3></td>
+				<td>total-price</td>
+			</tr>	<tr>
 				<td>
-					<div class="cart-info">
-						<img src="images/buy-1.jpg" alt="">
-						<div>
-							<p>Red Printed T-shirt</p>
-							<small>$30</small> <br> <a href="">Remove</a>
-						</div>
-					</div>
+					<h3>Red Printed T-shirt</h3>					
+					<h4>MFG</h4>
+					<h4>Qualities</h4> <br> <a href="">Remove</a>
 				</td>
 				<td><input type="number" value="1"></td>
-				<td>$50.0</td>
-			</tr>
-
-			<tr>
+				<td><h3>price</h3></td>
+				<td>total-price</td>
+			</tr>	<tr>
 				<td>
-					<div class="cart-info">
-						<img src="images/buy-1.jpg" alt="">
-						<div>
-							<p>Red Printed T-shirt</p>
-							<small>$30</small> <br> <a href="">Remove</a>
-						</div>
-					</div>
+					<h3>Red Printed T-shirt</h3>					
+					<h4>MFG</h4>
+					<h4>Qualities</h4> <br> <a href="">Remove</a>
 				</td>
 				<td><input type="number" value="1"></td>
-				<td>$50.0</td>
+				<td><h3>price</h3></td>
+				<td>total-price</td>
 			</tr>
 
 
@@ -107,7 +90,7 @@
 	</div>
 
 	<%@ include file="footer.jsp"%>
-	
-	
+
+
 </body>
 </html>
