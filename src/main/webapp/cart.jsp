@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" import="java.sql.Connection" %>
+	<%@page import="try1.User"%>
+	<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@ page import="reg.Product"%>
+<%@ page import="Connection.MyCon"%>
+<%@ page import="openUsers.OpenUserMethods"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<%@ include file="header.jsp"%>
+<%@ include file="headercustomer.jsp"%>
 <body>
 	<%
 	//############################################
@@ -20,6 +27,9 @@
 	if (session.getAttribute("email") == null) {
 		response.sendRedirect("login.html");
 	}
+
+	try {
+		User user = (User) session.getAttribute("user");
 	%>
 
 	<!-- Cart Items Details -->
@@ -31,43 +41,34 @@
 				<th>Price</th>
 				<th>Subtotal</th>
 			</tr>
+			<%
+			try {
+				Connection con = MyCon.dbcon("user_activity");
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery("select * from customer_activity where userID='"+user.getUserID()+"' and activityName='CARTED'");
+				int i = 0;
+				while (rs.next()) {
+					String productID=rs.getString(7);
+					Product product=OpenUserMethods.getProductDetails(productID);
+				
+			%>
 				<tr>
 				<td>
-					<h3>Red Printed T-shirt</h3>					
-					<h4>MFG</h4>
-					<h4>Qualities</h4> <br> <a href="">Remove</a>
+					<h3><%=product.getName() %></h3>					
+					<h4><%=product.getMfg() %></h4>
+					<h4><%=OpenUserMethods.toStringL(product.getProductQualities()) %></h4> <br> 
+					<a href="">Remove</a>
 				</td>
 				<td><input type="number" value="1"></td>
-				<td><h3>price</h3></td>
+				<td><h3><%=product.getProductPrice() %></h3></td>
 				<td>total-price</td>
-			</tr>	<tr>
-				<td>
-					<h3>Red Printed T-shirt</h3>					
-					<h4>MFG</h4>
-					<h4>Qualities</h4> <br> <a href="">Remove</a>
-				</td>
-				<td><input type="number" value="1"></td>
-				<td><h3>price</h3></td>
-				<td>total-price</td>
-			</tr>	<tr>
-				<td>
-					<h3>Red Printed T-shirt</h3>					
-					<h4>MFG</h4>
-					<h4>Qualities</h4> <br> <a href="">Remove</a>
-				</td>
-				<td><input type="number" value="1"></td>
-				<td><h3>price</h3></td>
-				<td>total-price</td>
-			</tr>	<tr>
-				<td>
-					<h3>Red Printed T-shirt</h3>					
-					<h4>MFG</h4>
-					<h4>Qualities</h4> <br> <a href="">Remove</a>
-				</td>
-				<td><input type="number" value="1"></td>
-				<td><h3>price</h3></td>
-				<td>total-price</td>
-			</tr>
+			</tr>	
+			<%
+			}
+			} catch (Exception e) {
+			// TODO: handle exception
+			out.print(e.getMessage());
+			}%>
 
 
 		</table>
@@ -88,6 +89,12 @@
 			</table>
 		</div>
 	</div>
+	<%
+	} catch (Exception e) {
+	e.getMessage();
+	}
+	//##############################################
+	%>
 
 	<%@ include file="footer.jsp"%>
 

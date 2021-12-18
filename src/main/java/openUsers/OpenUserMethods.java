@@ -49,4 +49,12 @@ public class OpenUserMethods {
 
 		return product;
 	}
+	public static String toStringL(String arr[]) {
+		String string = "";
+		for (int i = 0; i < arr.length; i++) {
+			string = string+arr[i] + " ,";
+		}
+		return string;
+
+	}
 }

@@ -2,6 +2,7 @@ package openUsers;
 
 
 import UserFunctions.UserMethods;
+import reg.Product;
 import try1.User;
 import vendor.VendorMethods;
 
@@ -41,6 +42,14 @@ public class MyCartFunctions {
 		User customer=um.getUserDetails(userID);
 		result=buyProduct(customer, productID, quantity);				
 		
+		return result;
+	}
+	public boolean addToCart(String productID,User customer) {
+		boolean result;
+		UserMethods um = new UserMethods();
+		
+		Product product=OpenUserMethods.getProductDetails(productID);
+		result=um.registerActivity(customer, "CARTED", productID, "from "+product.getSellerID());		
 		return result;
 	}
 }

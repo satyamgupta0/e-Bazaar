@@ -1,3 +1,4 @@
+<%@page import="try1.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.sql.Connection"%>
 <%@page import="java.sql.ResultSet"%>
@@ -59,7 +60,22 @@
 </style>
 </head>
 <body>
+<%
+	//############################################
+	response.setHeader("cache-control", "no-cache, no-store , must-revalidate");
+	//Http 1.1 line is used to prevent back button after logout
+	response.setHeader("pragma", "no-cache");// http1.0
+	response.setHeader("Expires", "0"); // proxies
 
+	//boolean result=(boolean) session.getAttribute("LoginValue");
+
+	if (session.getAttribute("email") == null) {
+		response.sendRedirect("login.html");
+	}
+
+	try {
+		User user = (User) session.getAttribute("user");
+	%>
 
 	<!-- Featured Product -->
 	<div class="small-container">
@@ -97,7 +113,7 @@
 				<!-- ***********************Add to Cart Button*********************** -->
 				<iframe name="dummyFrame" id="dummyFrame" style="display: none;">
 				</iframe>
-				<form action="/cartactions" target="dummyFrame">
+				<form action="cartactions" target="dummyFrame">
 					<input type="text" name="productID" value="<%=rs.getString(2)%>"
 						hidden>					
 						<button style="cursor: pointer;" class="btn" type="submit" onclick="myFunction()">Add To
@@ -157,7 +173,7 @@
 				<!-- ***********************Add to Cart Button*********************** -->
 				<iframe name="dummyFrame" id="dummyFrame" style="display: none;">
 				</iframe>
-				<form action="/cartactions" target="dummyFrame">
+				<form action="cartactions" target="dummyFrame">
 					<input type="text" name="productID" value="<%=rs.getString(2)%>"
 						hidden>					
 						<button style="cursor: pointer;" class="btn" type="submit" onclick="myFunction()">Add To
@@ -216,7 +232,7 @@
 				<!-- ***********************Add to Cart Button*********************** -->
 				<iframe name="dummyFrame" id="dummyFrame" style="display: none;">
 				</iframe>
-				<form action="/cartactions" target="dummyFrame">
+				<form action="cartactions" target="dummyFrame">
 					<input type="text" name="productID" value="<%=rs.getString(2)%>"
 						hidden>					
 						<button style="cursor: pointer;" class="btn" type="submit" onclick="myFunction()">Add To
@@ -236,6 +252,13 @@
 		</div>
 		<div id="snackbar">Product Added to cart</div>
 	</div>
+	<%
+	} catch (Exception e) {
+	e.getMessage();
+	}
+	//##############################################
+	%>
+	
 	<script>
 function myFunction() {
   var x = document.getElementById("snackbar");
