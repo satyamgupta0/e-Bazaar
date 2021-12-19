@@ -5,13 +5,14 @@
 <%@page import="java.sql.Statement"%>
 <%@ page import="reg.Product"%>
 <%@ page import="Connection.MyCon"%>
+<%@ page import="java.util.LinkedList"%>
 <%@ page import="openUsers.OpenUserMethods"%>
 	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Cart</title>
 </head>
 <%@ include file="headercustomer.jsp"%>
 <body>
@@ -43,20 +44,22 @@
 			</tr>
 			<%
 			try {
+				LinkedList<Product> cartItems=new LinkedList<Product>();
 				Connection con = MyCon.dbcon("user_activity");
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery("select * from customer_activity where userID='"+user.getUserID()+"' and activityName='CARTED'");
 				int i = 0;
 				while (rs.next()) {
 					String productID=rs.getString(7);
-					Product product=OpenUserMethods.getProductDetails(productID);
+					Product product=OpenUserMethods.getProductDetails(productID);					
+					cartItems.add(product);
 				
 			%>
 				<tr>
 				<td>
 					<h3><%=product.getName() %></h3>					
 					<h4><%=product.getMfg() %></h4>
-					<h4><%=OpenUserMethods.toStringL(product.getProductQualities()) %></h4> <br> 
+					<h4>Qualities</h4> <br> 
 					<a href="">Remove</a>
 				</td>
 				<td><input type="number" value="1"></td>
@@ -65,6 +68,7 @@
 			</tr>	
 			<%
 			}
+				session.setAttribute("cartItems", cartItems);
 			} catch (Exception e) {
 			// TODO: handle exception
 			out.print(e.getMessage());
@@ -87,6 +91,9 @@
 					<td>$200</td>
 				</tr>
 			</table>
+			<form action="buyAll.jsp" method="post">
+        <button class="btn" type="submit">Buy All</button>
+      </form>
 		</div>
 	</div>
 	<%
