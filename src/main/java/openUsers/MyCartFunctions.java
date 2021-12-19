@@ -8,7 +8,7 @@ import vendor.VendorMethods;
 
 public class MyCartFunctions {
 
-	protected String buyProduct(User customer, String productID, int quantity) {
+	public String buyProduct(User customer, String productID, int quantity) {
 		String result="failed";
 		//update to vendor product database		
 		
