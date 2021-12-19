@@ -14,7 +14,7 @@ public class VendorMethods {
 	protected boolean updateProduct(String productID, Product productUpdated) {
 		Connection con = MyCon.dbcon("product");
 		OpenUserMethods op = new OpenUserMethods();
-		Product productOld = op.getProductDetails(productID);
+		Product productOld = OpenUserMethods.getProductDetails(productID);
 
 		String tableName = productID.split("_")[0];
 		String sql = "update " + tableName + " set productName='" + productUpdated.getName() + "',  productPrice='"
@@ -48,7 +48,7 @@ public class VendorMethods {
 		} else {
 
 			OpenUserMethods om = new OpenUserMethods();
-			Product product2 = om.getProductDetails(productID);
+			Product product2 = OpenUserMethods.getProductDetails(productID);
 			// Created Product Update Copy
 			Product product = product2.createUpdateCopy();
 			product.setProductPrice(product2.getProductPrice());
@@ -63,7 +63,7 @@ public class VendorMethods {
 				product.setProductUnit(product2.getProductUnit() - quantity);
 				// updating the product in the database
 				updateProduct(productID, product);
-				result = "success_" + om.getProductDetails(productID).getProductUnit();
+				result = "success_" + OpenUserMethods.getProductDetails(productID).getProductUnit();
 				// Getting the vendor details
 				UserMethods um = new UserMethods();
 				User vendor = um.getUserDetails(product2.getSellerID());
