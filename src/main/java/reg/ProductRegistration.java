@@ -35,7 +35,7 @@ public class ProductRegistration extends HttpServlet {
 		
 		
 		////GET SELLERID
-		String sellerID="Not Defined";
+		String sellerID=req.getParameter("sellerID");
 		Product product = new Product();
 		
 		product.setCategory(productCategory);

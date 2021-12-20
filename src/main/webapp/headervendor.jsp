@@ -17,7 +17,7 @@
 			</div>
 			<nav>
 				<ul id="menu-items">
-					<li><a href=""><u>Home</u> </a></li>
+					<li><a href="welcomeprofilevendor.jsp"><u>Home</u> </a></li>
 					<li><a href="reg.jsp"><u>Register Product</u></a></li>					
 					<li><a href=""><u>Sales</u></a></li>
 					<li><a href=""><u>Stock</u></a></li>

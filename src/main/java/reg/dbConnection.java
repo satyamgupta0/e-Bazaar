@@ -35,7 +35,7 @@ public class dbConnection {
 	protected boolean addProductToDB(Product product) throws SQLException {
 
 		String sql = "insert into " + product.getCategory()
-				+ "( subCategory,productName,  productPrice, productUnit,productQualities, mfg )  values(?,?,?,?,?,?)";
+				+ "( subCategory,productName,  productPrice, productUnit,productQualities, mfg ,sellerID)  values(?,?,?,?,?,?,?)";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, uname, pass);
@@ -46,6 +46,7 @@ public class dbConnection {
 			ps.setInt(4, product.getProductUnit());
 			ps.setString(5,toString(product.getProductQualities()));
 			ps.setString(6, product.getMfg());
+			ps.setString(7, product.getSellerID());
 			
 			// Also include the vendorID in a column
 
