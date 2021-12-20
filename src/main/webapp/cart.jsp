@@ -60,7 +60,7 @@
 					<h3><%=product.getName() %></h3>					
 					<h4><%=product.getMfg() %></h4>
 					<h4>Qualities</h4> <br> 
-					<a href="">Remove</a>
+					<a href="" onclick=>Remove</a>
 				</td>
 				<td><input type="number" value="1"></td>
 				<td><h3><%=product.getProductPrice() %></h3></td>
@@ -92,7 +92,7 @@
 				</tr>
 			</table>
 			<form action="buyAll.jsp" method="post">
-        <button class="btn" type="submit">Buy All</button>
+        <button class="btn" type="submit" style="cursor: pointer;">Buy All</button>
       </form>
 		</div>
 	</div>
