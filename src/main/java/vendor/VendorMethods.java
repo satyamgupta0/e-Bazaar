@@ -78,6 +78,14 @@ public class VendorMethods {
 		return result;
 	}
 
+	
+	public String sellProduct(String productID, String customerID, int quantity) {
+		UserMethods um= new UserMethods();
+		User customer=um.getUserDetails(customerID);
+		String result = sellProduct(productID, customer, quantity);		
+		return result;
+	}
+
 	public String toString(String arr[]) {
 		String string = "";
 		for (int i = 0; i < arr.length; i++) {

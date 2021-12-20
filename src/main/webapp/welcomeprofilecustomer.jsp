@@ -93,7 +93,7 @@
 					Connection con = MyCon.dbcon("user_activity");
 					Statement st = con.createStatement();
 					ResultSet rs = st
-					.executeQuery("select * from customer_activity where userID='CUSTOMER1' and activityName='BOUGHT'");
+					.executeQuery("select * from customer_activity where userID='"+user.getUserID()+"' and activityName='BOUGHT'");
 					while (rs.next()) {
 				%>
 				<tr>
@@ -141,7 +141,7 @@
 					Connection con = MyCon.dbcon("user_activity");
 					Statement st = con.createStatement();
 					ResultSet rs = st
-					.executeQuery("select * from customer_activity where userID='CUSTOMER1' and activityName='LOGGEDIN'");
+					.executeQuery("select * from customer_activity where userID='"+user.getUserID()+"' and activityName='LOGGEDIN'");
 					while (rs.next()) {
 				%>
 				<tr>
