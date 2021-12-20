@@ -56,17 +56,20 @@
 					cartItems.add(product);
 				
 			%>
-				<tr>
+				<tr  style="border-bottom: 1px solid #F5F5F5;">
 				<td>
 					<h3><%=product.getName() %></h3>					
 					<h4><%=product.getMfg() %></h4>
-					<h4>Qualities</h4> <br> 
-					<a href="" onclick=>Remove</a>
+					<h4>Qualities</h4> 	<form action="removefromcart">
+					<input type="text" name="productID" value="<%=productID%>" style="display:none;">
+					<button type="submit" class="btn" style="cursor: pointer; ">Remove</button></form> 
+					
 				</td>
 				<td><input type="number" value="1"></td>
 				<td><h3><%=product.getProductPrice() %></h3></td>
-				<td>total-price</td>
-			</tr>	
+				<td>total-price</td>	
+			</tr>
+			
 			<%
 			}
 				session.setAttribute("cartItems", cartItems);
@@ -93,7 +96,7 @@
 				</tr>
 			</table>
 			<form action="buyAll.jsp" method="post">
-        <button class="btn" type="submit" style="cursor: pointer;">Buy All</button>
+        <button class="btn" type="submit" style="cursor: pointer;background: green;">Buy All</button>
       </form>
 		</div>
 	</div>
