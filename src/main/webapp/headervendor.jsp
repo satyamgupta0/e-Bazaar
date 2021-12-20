@@ -19,8 +19,8 @@
 				<ul id="menu-items">
 					<li><a href="welcomeprofilevendor.jsp"><u>Home</u> </a></li>
 					<li><a href="reg.jsp"><u>Register Product</u></a></li>					
-					<li><a href=""><u>Sales</u></a></li>
-					<li><a href=""><u>Stock</u></a></li>
+					<li><a href="salesVendor.jsp"><u>Sales</u></a></li>
+					<li><a href="stockVendor.jsp"><u>Stock</u></a></li>
 					<li><a href="logout"><u>Logout</u></a></li>
 				</ul>
 			</nav>

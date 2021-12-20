@@ -94,6 +94,9 @@ public class Product {
 		this.sellerID="";
 	}
 
+	public String printProductQualities() {
+		return toString(getProductQualities());
+	}
 	public void printProductDetails() {
 		System.out.println("ProductName: "+getName());
 		System.out.println("ProductCategory: "+getCategory());

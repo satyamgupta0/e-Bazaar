@@ -11,7 +11,7 @@ import try1.User;
 
 public class VendorMethods {
 
-	protected boolean updateProduct(String productID, Product productUpdated) {
+	public boolean updateProduct(String productID, Product productUpdated) {
 		Connection con = MyCon.dbcon("product");
 		OpenUserMethods op = new OpenUserMethods();
 		Product productOld = OpenUserMethods.getProductDetails(productID);

@@ -61,19 +61,15 @@ try{
 	if (user==null) response.sendRedirect("login.html");
 %>
 
-<div style="text-align: center;">
-        <h1>Welcome! <%=user.getName() %></h1>
-		<h3>Email Id : <%=user.getEmail() %></h3>
-		<h3>UserID : <%=user.getUserID() %></h3>	
-		</div>
+
 				<section>
-		
+		<body>
 	<div style="color: Black; text-align: center; font-size: 30px;">
 		<b>Recent Sales</b> <i class='fas fa-dolly'></i>
 	</div>
 	<br>
 	<div class="table-responsive overflow-auto "
-		style="height: 300px; overflow: auto; width:80%; margin:0 auto 0 auto;">
+		style="height: 400px; overflow: auto; width:80%; margin:0 auto 0 auto;">
 
 
 		<table class="table table-striped table-bordered"
@@ -112,58 +108,10 @@ try{
 
 
 	</div>
-
-		</section>
-		<br><br>
-		<section>
-		<body>
-	<div style="color: Black; text-align: center; font-size: 30px;">
-		<b>Recent Login history</b> <i class='fas fa-dolly'></i>
-	</div>
-	<br>
-	<div class="table-responsive overflow-auto "
-		style="height: 300px; overflow: auto; width:80%; margin:0 auto 0 auto;">
-
-
-		<table class="table table-striped table-bordered"
-			style="width: 90%; margin: 0 auto 0 auto">
-			<thead class="thead-light"
-				style="text-align: center; display: sticky;">
-				<tr>
-					<th class="header" scope="col">Activity Time</th>
-					<th class="header" scope="col">Activity</th>					
-				</tr>
-
-			</thead>
-			<tbody>
-				<%
-				try {
-					Connection con = MyCon.dbcon("user_activity");
-					Statement st = con.createStatement();
-					ResultSet rs = st
-					.executeQuery("select * from vendor_activity where userID='"+user.getUserID()+"' and activityName='LOGGEDIN' order by activityTime desc");
-					while (rs.next()) {
-				%>
-				<tr>
-					<td><%=rs.getString(2)%></td>
-					<td><%=rs.getString(5)%></td>
-					
-				</tr>
-				<%
-				}
-				} catch (Exception e) {
-				System.out.println(e);
-				}
-				%>
-			</tbody>
-		</table>
-
-
-	</div>
 </body>
 		</section>
-		
- <br> <br>
+		<br> <br>
+
 <%
 }
 catch(Exception e){
