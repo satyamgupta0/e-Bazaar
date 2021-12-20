@@ -33,6 +33,7 @@
 	position: sticky;
 	top: 0;
 	color:black;
+	font-weight: 900;
 	
 }
 </style>
