@@ -55,7 +55,7 @@ public class VendorMethods {
 			product.setProductQualities(product2.getProductQualities());
 			product.setMfg(product2.getMfg());
 			product.setName(product2.getName());
-			if (product.getProductUnit() - quantity < 0) {
+			if (product2.getProductUnit() - quantity < 0) {
 
 				result = "error_" + product2.getProductUnit();// return the maximum unit which can be sold
 			} else {
