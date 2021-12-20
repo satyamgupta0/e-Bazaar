@@ -35,7 +35,7 @@
 	%>
 	<div style="text-align: center;">
 <h1>
-  The successful operations are in Green and failed ones are in Red.
+  The successful operations are in Green and failed ones are in Red. <br><br>
 </h1>
 <%
 @SuppressWarnings("unchecked") 
@@ -43,34 +43,25 @@ LinkedList<Product> cartItems=(LinkedList<Product>) session.getAttribute("cartIt
 MyCartFunctions mn= new MyCartFunctions();
 for(int i=0; i<cartItems.size();i++){
 	out.println("________________________________________________________"+"<br><br>");
-	out.println("for Item : "+cartItems.get(i).getName()+" With ProductID: "+cartItems.get(i).getProductID()+"<br>");
-	out.println(mn.buyProduct(user, cartItems.get(i).getProductID(),1)+"<br>");
-	out.println("========================================================="+"<br><br>");
-}
+	out.println("<b>for Item : "+cartItems.get(i).getName()+" With ProductID: "+cartItems.get(i).getProductID()+"</b><br>");
+	String result[]=mn.buyProduct(user, cartItems.get(i).getProductID(),1).split("_");
+	out.println("<br>");
+	if(result[1].equals("true")){				
+	%>
+	<h1 style="color: green; font-weight: bolder;"><%=result[0] %></h1>
+	<%}
+	else if (result[1].equals("false")) {	
+	%>
+	<h1 style="color: red; font-weight: bolder;"><%=result[0] %></h1>	
+	<%}} %>
 
 
-%>
 
+
+ <br><br>	
 <h1>Thank You For shopping with us.</h1>
       </div>
-  </div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+ <br><br>	
 <%
 	} catch (Exception e) {
 	e.getMessage();
