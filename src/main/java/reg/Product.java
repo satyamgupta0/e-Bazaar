@@ -1,8 +1,8 @@
 package reg;
 
+import java.util.Comparator;
 
-
-public class Product {
+public class Product implements Comparable<Product> {
 
 	public String name;
 	public String category;
@@ -13,6 +13,7 @@ public class Product {
 	public double productPrice;
 	public String mfg;
 	public String sellerID;
+	
 	
 	public String getSellerID() {
 		return sellerID;
@@ -93,26 +94,58 @@ public class Product {
 		this.mfg = "";
 		this.sellerID="";
 	}
+	
+	
 
+	public Product(String name, int productUnit, double productPrice) {
+		this.name = name;
+		this.productUnit = productUnit;
+		this.productPrice = productPrice;
+		this.category =  "";
+		this.subCategory =  "";
+		this.productID =  "";
+		this.productQualities = null;
+		this.mfg = "";
+		this.sellerID="";
+	}
+	public Product(Product product) {
+		// TODO Auto-generated constructor stub
+		this.name = product.name;
+		this.category = product.category;
+		this.subCategory = product.subCategory;
+		this.productID = product.productID;
+		this.productQualities = product.productQualities;
+		this.productUnit = product.productUnit;
+		this.productPrice = product.productPrice;
+		this.mfg = product.mfg;
+		this.sellerID=product.sellerID;
+	}
 	public String printProductQualities() {
 		return toString(getProductQualities());
 	}
 	public void printProductDetails() {
 		System.out.println("ProductName: "+getName());
-		System.out.println("ProductCategory: "+getCategory());
-		System.out.println("ProductSubCategory: "+getSubCategory());
-		System.out.println("ProductID: "+getProductID());
-		System.out.println("ProductQualities: "+toString(getProductQualities()));
+		//System.out.println("ProductCategory: "+getCategory());
+//		System.out.println("ProductSubCategory: "+getSubCategory());
+//		System.out.println("ProductID: "+getProductID());
+//		System.out.println("ProductQualities: "+toString(getProductQualities()));
 		System.out.println("ProductUnit: "+getProductUnit());
 		System.out.println("ProductPrice: "+getProductPrice());
-		System.out.println("ProductMFG: "+getMfg());
-		System.out.println("SellerID: "+getSellerID());
+//		System.out.println("ProductMFG: "+getMfg());
+//		System.out.println("SellerID: "+getSellerID());
 		
 		
 	}
 	public String toString(String arr[]) {
 		String string="";
-		for (int i = 0; i < arr.length; i++) {
+		int size;
+		if(arr==null) {
+			size=0;
+		}
+		else {
+			size=arr.length;
+		}
+		for (int i = 0; i < size; i++) {
 			string=string+arr[i]+" ,";
 		}
 		return string;
@@ -132,4 +165,12 @@ public class Product {
 		
 		return product;
 	}
+	@Override
+	public int compareTo(Product o) {
+		// TODO Auto-generated method stub
+		return this.name.compareTo(o.name);
+	}
+	
+	
+
 }
