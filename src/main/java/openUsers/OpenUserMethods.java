@@ -9,17 +9,17 @@ import reg.Product;
 
 public class OpenUserMethods {
 	public static Product getProductDetails(String ProductID) {
-		Product product = new Product();
-		Connection con = MyCon.dbcon("product");
+		Product product = new Product();//Creates a new Product
+		Connection con = MyCon.dbcon("product");//Establish a connection from Product database
 
-		String tableName = ProductID.split("_")[0];
+		String tableName = ProductID.split("_")[0];//ELECTRONICS_EARPHONE23
 		System.out.println(tableName);
 
 		String sql = "select * from " + tableName + " where productID='" + ProductID + "'";
 //		System.out.println(sql);
 		try {
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(sql);
+			Statement st = con.createStatement();//Statement helps to execute SQL queries
+			ResultSet rs = st.executeQuery(sql);//Execute the Query and Stores the result.
 			while (rs.next()) {
 				int serialID = rs.getInt(1);
 				String productID = rs.getString(2);

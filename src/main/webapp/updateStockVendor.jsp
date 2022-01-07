@@ -71,7 +71,7 @@ Product product=OpenUserMethods.getProductDetails(productID);
 		</div>
 		<div class="form-group">
 			<label for="">Enter the Product Price</label> <input type="number"
-				class="form-control" name="productPrice" step="0.001" placeholder="<%=product.getProductPrice() %>" >
+				class="form-control" name="productPrice" step="0.001" value="<%=product.getProductPrice() %>" >
 		</div>
 		<div class="form-group">
 			<label for="">Enter the Product unit </label> <input type="number"

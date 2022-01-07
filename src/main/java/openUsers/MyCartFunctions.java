@@ -12,7 +12,7 @@ import vendor.VendorMethods;
 
 public class MyCartFunctions {
 
-	public String buyProduct(User customer, String productID, int quantity) {
+	public String buyProduct(User customer, String productID, int quantity) {//w.r.t. customer
 		String result = "failed";
 		// update to vendor product database
 

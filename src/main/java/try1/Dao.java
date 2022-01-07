@@ -48,7 +48,7 @@ public class Dao {
 			ResultSet rs = st.executeQuery("SELECT * FROM " + tableName + " ORDER BY userSerialID DESC LIMIT 1;");
 			rs.next();
 			int id = rs.getInt("userSerialID");
-			String userID = userType.toUpperCase() + id;
+			String userID = userType.toUpperCase() + id;//CUStomer56
 			user.setUserID(userID);
 			System.out.println(user.getUserID());
 			String sql2 = "update " + tableName + " set userUniqueID='" + user.getUserID() + "' where userSerialID="

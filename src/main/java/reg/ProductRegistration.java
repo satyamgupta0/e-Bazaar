@@ -72,9 +72,11 @@ public class ProductRegistration extends HttpServlet {
 			boolean result=db.addProductToDB(product);
 			if(result) {
 				out.println("Product added");
+				resp.sendRedirect("stockVendor.jsp");
 			}
 			else {
 				out.println("Product could not be added");
+				resp.sendRedirect("welcomeprofilevendor.jsp");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

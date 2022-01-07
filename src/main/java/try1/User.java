@@ -1,7 +1,7 @@
 package try1;
 
 public class User {
-	
+	// Can Be a customer or a Vendor
 	String name;
 	String email ;
 	String mobNumber;

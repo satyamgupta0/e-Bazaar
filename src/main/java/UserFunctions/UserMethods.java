@@ -20,7 +20,7 @@ public class UserMethods {
 //view shopping history
 // View login history
 
-	public User getUserDetails(String usertype, String email) {
+	public User getUserDetails(String usertype, String email) {//vendor, vendor41@gmail.com
 		User user = new User();
 		Connection con = MyCon.dbcon("user_signup_login_DATA_for_admin");
 		String tableName = "userRegistrationDetails";

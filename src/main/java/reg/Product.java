@@ -4,10 +4,10 @@ import java.util.Comparator;
 
 public class Product implements Comparable<Product> {
 
-	public String name;
-	public String category;
-	public String subCategory;//
-	public String productID;
+	public String name;//Perfume
+	public String category;//Grocery
+	public String subCategory;//Perfume
+	public String productID;//
 	public String[] productQualities;
 	public int productUnit;
 	public double productPrice;
